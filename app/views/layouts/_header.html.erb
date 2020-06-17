@@ -1,0 +1,35 @@
+<header>
+    <nav class="nav navbar-nav navbar-left">
+      <h1>naganocakeロゴ</h1>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if customer_signed_in? %>
+
+          <!--カスタマーがログインしている時 -->
+          <li class="header-name">
+            ようこそ、<%=  %>さん！
+          </li>
+          <li><%= link_to "マイページ", "" %></li>
+          <li><%= link_to "商品一覧", "" %></li>
+          <li><%= link_to "カート", "" %></li>
+          <li><%= link_to "ログアウト", "" %></li>
+        <% elsif admin_signed_in? %>
+
+          <!-- 管理者がログインしている時 -->
+          <li><%= link_to "商品一覧", "" %></li>
+          <li><%= link_to "会員一覧", ""  %></li>
+          <li><%= link_to "注文履歴一覧", "" %></li>
+          <li><%= link_to "ジャンル一覧", "" %></li>
+          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+
+        <% else %>
+
+          <!-- ログインしていない時 -->
+          <li><%= link_to "商品一覧", "" %></li>
+          <li><%= link_to "新規登録", "" %></li>
+          <li><%= link_to "ログイン", new_admin_session_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+</header>
