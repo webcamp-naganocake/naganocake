@@ -8,7 +8,8 @@
 
     <%= form_for(@genre, url: admins_genres_path) do |f| %>
         <div class="form-group col-md-10">
-        　
+
+          <%= f.label :ジャンル %>
           <%= f.text_field :name,class: "col-md-4" %>
 
           <%= f.radio_button :is_genres_status, :true %>
