@@ -1,7 +1,7 @@
 <header>
   <div class="container">
     <nav class="nav navbar-nav navbar-left">
-      <h1>naganocakeロゴ</h1>
+      <h1><%= link_to "naganocakeロゴ", root_path %></h1>
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">
@@ -11,24 +11,24 @@
           <li class="header-name">
             ようこそ、<%=  %>さん！
           </li>
-          <li><%= link_to "マイページ", "" %></li>
-          <li><%= link_to "商品一覧", "" %></li>
-          <li><%= link_to "カート", "" %></li>
-          <li><%= link_to "ログアウト", "" %></li>
+          <li><%= link_to "マイページ", customers_show_path %></li>
+          <li><%= link_to "商品一覧", items_path %></li>
+          <li><%= link_to "カート", customers_cart_items_path %></li>
+          <li><%= link_to "ログアウト", destroy_customer_session_path %></li>
         <% elsif admin_signed_in? %>
 
           <!-- 管理者がログインしている時 -->
-          <li><%= link_to "商品一覧", "" %></li>
-          <li><%= link_to "会員一覧", ""  %></li>
-          <li><%= link_to "注文履歴一覧", "" %></li>
-          <li><%= link_to "ジャンル一覧", "" %></li>
+          <li><%= link_to "商品一覧", admins_items_path %></li>
+          <li><%= link_to "会員一覧", admins_customers_path %></li>
+          <li><%= link_to "注文履歴一覧", admins_orders_path %></li>
+          <li><%= link_to "ジャンル一覧", admins_genres_path %></li>
           <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
 
         <% else %>
 
           <!-- ログインしていない時 -->
-          <li><%= link_to "商品一覧", "" %></li>
-          <li><%= link_to "新規登録", "" %></li>
+          <li><%= link_to "商品一覧", items_path %></li>
+          <li><%= link_to "新規登録", new_customer_registration_path %></li>
           <li><%= link_to "ログイン", new_admin_session_path %></li>
         <% end %>
       </ul>
