@@ -20,6 +20,7 @@ Rails.application.routes.draw do
    patch '' => 'customers#withdraw'
    resources :orders, only: [:create, :index, :show]
    post 'orders' => 'orders#new'
+   get 'orders' => 'orders#new'
    get 'orders/about' => 'orders#about'
    get 'orders/complete' => 'orders#complete'
    resources :cart_items, only: [:index, :create, :update, :destroy]
