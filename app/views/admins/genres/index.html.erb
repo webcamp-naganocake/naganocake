@@ -1,19 +1,34 @@
-<div class="container">
+
 <!-- my = 上下のマージン
  5 = 5rem = 80px rem（root em）は相対的なサイズを表す単位。remはルート要素(今回は多分16px?)を基準に相対的なサイズを定める。-->
-
+<br><br><br><br>
+<!-- 改行する方法がこれで良いのか -->
   <div class="row">
-    <div class="">
-      <h2>ジャンル追加・一覧</h2>
+      <h2>ジャンル追加・一覧</h2><br>
+
+    <%= form_for(@genre, url: admins_genres_path) do |f| %>
+
+    <div class="form-group col-md-ofset-1 col-md-4">
+      <%= f.label :ジャンル %>
+      <%= f.text_field :name,class: "col-md-4" %>
     </div>
 
-    <div class="">
+    <div class="form-check">
+      <%= f.radio_button :is_genres_status, :true %>
+      <%= f.label :is_genres_status, "有効" %>
+    </div>
+
+
+    </div>
+    <% end %>
+    <br>
+    <div class="row mt-5">
       <!-- ofsetは左右の余白 -->
-      <table class="table table-dark">
+      <table class="table">
         <thead>
           <tr>
             <th>ジャンル</th>
-            <th>ステータス</th>
+            <th>状態</th>
             <th colspan="1"></th>
           </tr>
         </thead>
@@ -22,6 +37,4 @@
 
         </tbody>
       </table>
-      </div>
     </div>
-</div>
