@@ -26,9 +26,9 @@
           <% @items.each do |item| %>
             <tr>
               <td><%= item.id %></td>
-              <td><%= item.name %></td>
+              <td><%= link_to item.name ,admins_item_path(item) %></td>
               <td><%= item.price_without_tax %></td>
-              <td><%= item.genre_id %></td>
+              <td><%= item.genre.name %></td>
               <td><% if item.is_sales_status == true %>
               販売中
               <% else %>
