@@ -3,6 +3,7 @@ class Admins::ItemsController < ApplicationController
   end
 
   def index
+    @items = Item.all
   end
 
   def new
