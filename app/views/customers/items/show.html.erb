@@ -3,15 +3,17 @@
 	<%= render 'admins/genres/sidebar' %>
 
 	<div class="col-xs-4">
-		<%= attachment_image_tag @item, :image, :fill, 100, 50, format: 'jpeg',fallback: "no_image.jpg" %>
+		<%= attachment_image_tag @item, :image_id, :fill, 100, 50, format: 'jpeg',fallback: "no_image.jpg", size:'300x150' %>
 	</div>
 	
 	<div class="col-xs-5">
 		<h3><%= @item.name %></h3>
 		<%= @item.description %>
 		¥ <%= @item.price_without_tax*1.08 %> (税込)
-		<%= form_with model: @cart_items, url: customers_cart_items, do |form| %>
-  		<%= form.select :quantity, [['1個', 1], ['2個', 2], ['3個', 3], ['4個', 4], ['5個', 5], ['6個', 6], ['7個', 7], ['8個', 8], ['9個', 9]], { selected: "個数選択"} %>
+		<%= form_with model: @cart_item do |form| %>
+  		<%= form.select :quantity, [['1個', 1], ['2個', 2], ['3個', 3], ['4個', 4], ['5個', 5], ['6個', 6], ['7個', 7], ['8個', 8], ['9個', 9]], {:prompt => "個数選択"}, class:"col-xs-4" %>
+  		<span>
+  			  <%= form.submit "カートに入れる", class:"btn btn-primary col-xs-4" %>
 		<% end %>
 	</div>
 
