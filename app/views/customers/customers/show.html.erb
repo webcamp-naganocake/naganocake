@@ -1,1 +1,37 @@
-トップページ
+<div class="row">
+
+    <h3>マイページ</h3>
+        <table class="table table-bordered table-condensed">
+
+            <tr>
+                <td class="col-xs-2">氏名</td>
+                <td><%= current_customer.last_name %>&nbsp;<%= current_customer.first_name %></td>
+            </tr>
+
+            <tr>
+                <td class="col-xs-2">カナ</td>
+                <td><%= current_customer.last_name_kana %>&nbsp;<%= current_customer.first_name_kana %></td>
+            </tr>
+
+            <tr>
+                <td class="col-xs-2">郵便番号</td>
+                <td><%= current_customer.postal_code %></td>
+            </tr>
+
+            <tr>
+                <td class="col-xs-2">住所</td>
+                <td><%= current_customer.address %></td>
+            </tr>
+
+            <tr>
+                <td class="col-xs-2">電話番号</td>
+                <td><%= current_customer.phone_number %></td>
+            </tr>
+
+            <tr>
+                <td class="col-xs-2">メールアドレス</td>
+                <td><%= current_customer.email %></td>
+            </tr>
+
+        </table>
+</div>
