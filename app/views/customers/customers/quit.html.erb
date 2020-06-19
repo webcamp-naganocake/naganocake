@@ -1,0 +1,13 @@
+<div class="row">
+    <strong>本当に退会しますか？</strong>
+    <div class="messages">
+        <h3>退会すると、会員登録情報や<br>
+        これまでの購入履歴が閲覧できなくなります。<br>
+        退会する場合は、「退会する」をクリックしてください。
+        </h3>
+    </div>
+
+    <%= link_to "退会しない", customers_show_path %>
+    <%= link_to "退会する", customers_path, method: :PATCH %>
+
+</div>
