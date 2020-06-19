@@ -1,5 +1,6 @@
 <div class="row">
-    <strong>本当に退会しますか？</strong>
+  <div class="col-xs-12">
+    <h2><strong>本当に退会しますか？</strong></h2>
     <div class="messages">
         <h3>退会すると、会員登録情報や<br>
         これまでの購入履歴が閲覧できなくなります。<br>
@@ -7,7 +8,7 @@
         </h3>
     </div>
 
-    <%= link_to "退会しない", customers_show_path %>
-    <%= link_to "退会する", customers_path, method: :PATCH %>
-
+    <%= link_to "　退会しない", customers_show_path, class: "glyphicon glyphicon-home btn btn-primary" %>
+    <%= link_to "　退会する　", customers_path, method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"}, class: "glyphicon glyphicon-tint btn btn-danger" %>
+  </div>
 </div>
