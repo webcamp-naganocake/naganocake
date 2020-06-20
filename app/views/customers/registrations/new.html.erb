@@ -6,25 +6,25 @@
 
       <div class="row">
         <label class="col-lg-3">名前</label>
-        <div class="col-lg-2">
+        <div class="col-lg-3">
           <%= f.label :"(姓)" %>
-          <%= f.text_field :last_name,autoforcus: true, autocomplete: "last_name", :size=>"10" %>
+          <%= f.text_field :last_name,autoforcus: true, autocomplete: "last_name"%>
         </div>
         <div class="col-lg-3">
           <%= f.label :"(名)" %>
-          <%= f.text_field :first_name,autoforcus: true, autocomplete: "first_name", :size=>"10" %>
+          <%= f.text_field :first_name,autoforcus: true, autocomplete: "first_name" %>
         </div>
       </div><br>
 
       <div class="row">
         <label class="col-lg-3">フリガナ</label>
-        <div class="col-lg-2">
+        <div class="col-lg-3">
           <%= f.label :"(セイ)" %>
-          <%= f.text_field :last_name_kana,autoforcus: true, autocomplete: "last_name_kana", :size=>"10" %>
+          <%= f.text_field :last_name_kana,autoforcus: true, autocomplete: "last_name_kana" %>
         </div>
         <div class="col-lg-3">
           <%= f.label :"(メイ)" %>
-          <%= f.text_field :first_name_kana,autoforcus: true, autocomplete: "first_name_kana",  :size=>"10" %>
+          <%= f.text_field :first_name_kana,autoforcus: true, autocomplete: "first_name_kana" %>
         </div>
       </div><br>
 
@@ -85,7 +85,11 @@
 
 
     <h3>既に登録済みの方</h3>
-    <div class="col-sm-3"> 
-    <%= render "customers/shared/links" %>からログインしてください</div>
+    <div class="col-sm-3">
+      <%- if controller_name != 'sessions' %>
+        <%= link_to "こちら", new_session_path(resource_name) %>
+      <% end %>
+  からログインしてください
+    </div>
     <% end %>
   </div>
