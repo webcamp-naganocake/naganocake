@@ -1,0 +1,61 @@
+<br><br>
+<!-- 改行する方法がこれで良いのか -->
+  <div class="col-md-12 col-xl-12">
+      <h2>会員情報編集</h2><br>
+  </div>
+
+  <%= form_for(@customer, url: admins_customer_path) do |f| %>
+
+    <div class="row">
+
+      <div class="col-md-7 col-xl-7">
+        <div class="customers-group">
+          <%= f.label :会員ID %>
+          <%= f.text_field :id  %>
+        </div>
+
+        <div class="customers-group">
+          <%= f.label :氏名 %>
+          <%= f.text_field :last_name %>
+          <%= f.text_field :first_name %>
+        </div>
+
+        <div class="customers-group">
+          <%= f.label :フリガナ %>
+          <%= f.text_field :last_name_kana %>
+          <%= f.text_field :first_name_kana %>
+        </div>
+
+        <div class="customers-group">
+          <%= f.label :郵便番号 %>
+          <%= f.text_field :postal_code %>
+        </div>
+
+        <div class="customers-group">
+          <%= f.label :住所 %>
+          <%= f.text_field :address %>
+        </div>
+
+        <div class="customers-group">
+          <%= f.label :電話番号 %>
+          <%= f.text_field :phone_number %>
+        </div>
+
+        <div class="customers-group">
+          <%= f.label :メールアドレス %>
+          <%= f.text_field :email %>
+        </div>
+
+        <div class="customers-group">
+          <%= f.label :会員ステータス %>
+          <%= f.select :is_customer_status, [["有効会員","true"], ["退会済み","false"]] %>
+        </div>
+      </div>
+    </div>
+
+      <div class="col-md-offset-1 col-
+        md-2 text-right">
+        <%= f.submit "変更を保存する" ,class: "btn btn-primary " %>
+      </div>
+
+  <% end %>
