@@ -24,3 +24,4 @@ Admin.create!(
       phone_number: "09000000000"
    )
 end
+
