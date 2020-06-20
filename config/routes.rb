@@ -17,7 +17,7 @@ Rails.application.routes.draw do
    get 'edit' => 'customers#edit'
    patch 'update' => 'customers#update'
    get 'quit' => 'customers#quit'
-   patch '' => 'customers#withdraw'
+   patch '' => 'customers#withdraw', as: 'customers_withdraw'
    resources :orders, only: [:create, :index, :show]
    post 'orders' => 'orders#new'
    get 'orders' => 'orders#new'
