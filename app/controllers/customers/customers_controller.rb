@@ -1,6 +1,5 @@
 class Customers::CustomersController < ApplicationController
-
-    before_action :authenticate_customer!
+  before_action :authenticate_customer!
 
     # マイページへのアクション
     def show

@@ -1,1 +1,42 @@
-4
+<br><br>
+<!-- 改行する方法がこれで良いのか -->
+  <div class="col-md-6">
+      <h2>商品一覧</h2><br>
+  </div>
+
+  <div class="col-md-6 text-right">
+      <%= link_to "新規登録" ,new_admins_item_path, class:"btn btn-lg" %>
+  </div>
+
+    <div class="row mt-5">
+      <!-- ofsetは左右の余白 -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>商品一覧</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+            <th colspan="1"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td><%= item.id %></td>
+              <td><%= link_to item.name ,admins_item_path(item) %></td>
+              <td><%= item.price_without_tax %></td>
+              <td><%= item.genre.name %></td>
+              <td><% if item.is_sales_status == true %>
+              販売中
+              <% else %>
+              販売停止中
+              <% end %>
+              </td>
+            </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
