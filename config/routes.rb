@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  # customer側ルーティング
   devise_for :customers, controllers: {
    sessions:      'customers/sessions',
    passwords:     'customers/passwords',
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
    resources :shipping_addresses, only: [:index, :create, :destroy, :edit, :update]
   end
 
-
+  # admin側ルーティング
   devise_for :admins, controllers: {
    sessions:      'admins/sessions',
    passwords:     'admins/passwords',
