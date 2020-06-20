@@ -1,23 +1,23 @@
 Rails.application.routes.draw do
 
-  devise_for :admins, controllers: {
-   sessions:      'admins/sessions',
-   passwords:     'admins/passwords',
-   registrations: 'admins/registrations'
-  }
-
   devise_for :customers, controllers: {
    sessions:      'customers/sessions',
    passwords:     'customers/passwords',
    registrations: 'customers/registrations'
   }
 
+  scope module: 'customers' do
+    root 'items#top'
+    resources :items, only: [:show, :index]
+   end
+
+
   namespace :customers do
+   patch 'customers/withdraw' => 'customers#withdraw', as: 'customers_withdraw'
    get 'show' => 'customers#show'
-   get 'edit' => 'customers#edit'
+   get 'customers/edit' => 'customers#edit'
    patch 'update' => 'customers#update'
    get 'quit' => 'customers#quit'
-   patch '' => 'customers#withdraw', as: 'customers_withdraw'
    resources :orders, only: [:create, :index, :show]
    post 'orders' => 'orders#new'
    get 'orders' => 'orders#new'
@@ -28,10 +28,12 @@ Rails.application.routes.draw do
    resources :shipping_addresses, only: [:index, :create, :destroy, :edit, :update]
   end
 
-  scope module: 'customers' do
-   root 'items#top'
-   resources :items, only: [:show, :index]
-  end
+
+  devise_for :admins, controllers: {
+   sessions:      'admins/sessions',
+   passwords:     'admins/passwords',
+   registrations: 'admins/registrations'
+  }
 
   namespace :admins do
    get 'top' => 'top#top'

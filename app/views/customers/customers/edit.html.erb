@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xs-12">
       <h3><strong>登録情報編集</strong></h3>
-      <%= form_with(model:@customer, url:customers_update_path, local: true ,method: :PATCH) do |f| %>
+      <%= form_with(model:@customer, url:customers_update_path ,method: :PATCH) do |f| %>
       <!-- local: trueがない場合、Rails5ではAjaxによる送信という意味になる。普通にHTMLとしてフォームを送信する場合にlocal: trueが必要になる-->
         <div class="col-xs-10">
             <div class="form-group col-xs-12">
@@ -33,7 +33,7 @@
         </div>
         <div class="actions col-xs-10 col-xs-offset-2">
         <p>
-          <%= link_to "編集内容を保存する", customers_update_path, method: :PATCH, class: "btn btn-primary col-sm-6" %>
+          <%= f.submit "編集内容を保存する", class: "btn btn-primary col-sm-6" %>
           <%= link_to " 退会する", customers_quit_path, class: "glyphicon glyphicon-tint btn btn-danger col-sm-3"%>
         </p>
         </div>
