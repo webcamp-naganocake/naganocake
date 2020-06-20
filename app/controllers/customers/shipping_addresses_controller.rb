@@ -1,7 +1,10 @@
 class Customers::ShippingAddressesController < ApplicationController
     
+    before_action :authenticate_customer!
+
     def index
-        @shipping_addresses = ShippingAddress.all
+        @shipping_addresses = current_customer.shipping_address
+        @shipping_address = ShippingAddress.new
     end
     
     def create
@@ -13,11 +16,17 @@ class Customers::ShippingAddressesController < ApplicationController
     end
 
     def edit
-
+        @shipping_address = ShippingAddress.find(params[:id])
     end
 
     def update
-
+        @shipping_address = ShippingAddress.find(params[:id])
+	  if @shipping_address.update(shipping_address_params)
+        flash[:success] = "配送先を変更しました"
+        redirect_to customers_shipping_addresses_path
+	  else
+	    render "edit"
+	  end
     end
 
   private

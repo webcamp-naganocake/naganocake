@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xs-12">
       <h3><strong>配送先登録/一覧</strong></h3>
-      <%= form_with model: @shipping_address do |f| %>
+        <!--<%= form_with model: @shipping_address do |f| %>
             <div class="shipping_addres col-xs-10">
                 <div class="form-group col-xs-12">
                     <%= f.label :"郵便番号(ハイフンなし)" ,class: "col-xs-3 control-label" %>
@@ -19,7 +19,7 @@
                 </div>
                     <%= f.submit '登録する' , class: "col-xs-2 pull-right btn-lg btn-success " %>
                 </div>
-        <% end %>
+        <% end %>-->
 
         <table class="table table-hover table-bordered">
           <thead>
@@ -31,6 +31,23 @@
             </tr>
           </thead>
           <tbody>
+           <% @shipping_addresses.each do |shipping_address| %>
+            <td>
+                <%= shipping_address.postal_code %>
+            </td>
+            <td class="text-left">
+                <%= shipping_address.address %>
+            </td>
+            <td class="text-left">
+                <%= shipping_address.name %>
+            </td>
+            <td>
+                <%= link_to "編集する", edit_customers_shipping_address_path(shipping_address), class: "glyphicon glyphicon-pencil btn-sm btn-primary" %>
+            </td>
+            <td>
+                <%= link_to "削除する", customers_shipping_address_path(shipping_address), method: :DELETE, data: {confirm: "本当に削除してもよろしいですか？"}, remote: true, class: "glyphicon glyphicon-trash btn-sm btn-danger destroy_book_#{shipping_address.id}" %>
+            </td>
+           <% end %>
           </tbody>
         </table>
 
