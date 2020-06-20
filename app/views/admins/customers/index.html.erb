@@ -1,0 +1,39 @@
+<br><br>
+<!-- 改行する方法がこれで良いのか -->
+  <div class="row">
+      <h2>会員一覧</h2><br>
+
+  </div>
+
+    <br>
+    <div class="row mt-5">
+      <!-- ofsetは左右の余白 -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+            <th colspan="1"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td><%= customer.id %></td>
+              <td><%= link_to customer.first_name ,admins_customer_path(customer) %></td>
+              <td><%= customer.email %></td>
+              <td>
+                <% if customer.is_customer_status == true %>
+                有効
+                <% else %>
+                無効
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
