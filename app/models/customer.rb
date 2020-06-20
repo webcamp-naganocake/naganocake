@@ -8,6 +8,11 @@ class Customer < ApplicationRecord
          has_many :orders, dependent: :destroy
          has_many :shipping_addresses, dependent: :destroy
 
+    # 退会機能
+    def active_for_authentication?
+      super && (self.is_customer_status == false)
+    end
+
        validates :last_name,  presence: true
        validates :first_name, presence: true
        validates :last_name_kana,  presence: true
