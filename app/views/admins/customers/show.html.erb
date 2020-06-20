@@ -1,0 +1,65 @@
+<br><br>
+<!-- 改行する方法がこれで良いのか -->
+  <div class="col-md-12 col-xl-12">
+      <h2>会員情報詳細</h2><br>
+  </div>
+
+    <div class="row">
+
+      <div class="col-md-7">
+        <table class="table">
+          <tbody>
+
+            <tr>
+              <td>顧客ID</td>
+              <td><%= @customer.id %></td>
+              <% if @customer.is_customer_status == true %>
+              <div class="bg-info">
+                有効会員
+              </div>
+              <% else %>
+              <div class="bg-warning">
+              退会済み
+              </div>
+              <% end %>
+            </tr>
+
+            <tr>
+              <td>氏名</td>
+              <td><%= @customer.last_name %>
+              <%= @customer.first_name %></td>
+            </tr>
+
+            <tr>
+              <td>フリガナ</td>
+              <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
+            </tr>
+
+            <tr>
+              <td>郵便番号</td>
+              <td><%= @customer.postal_code %></td>
+            </tr>
+
+            <tr>
+              <td>住所</td>
+              <td><%= @customer.address %></td>
+            </tr>
+
+            <tr>
+              <td>電話番号</td>
+              <td><%= @customer.phone_number %></td>
+            </tr>
+
+            <tr>
+              <td>メールアドレス</td>
+              <td><%= @customer.email %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+        <div class="col-md-offset-1 col-
+          md-2 text-right">
+          <%= link_to "編集する", edit_admins_customer_path(@customer), class: "btn btn-primary" %>
+          <%= link_to "注文一覧を見る","#", class: "btn btn-primary" %>
+        </div>
