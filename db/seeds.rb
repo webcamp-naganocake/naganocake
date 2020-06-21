@@ -51,7 +51,7 @@ Order.create!([
   20.times do |n|
    ShippingAddress.create!(
      name: "テスト太郎#{n + 1}",
-     postal_code: "123456#{n + 1}",
+     postal_code: "1234567",
      address: "京都府京都市山科区1-2-#{n + 1}",
      customer_id: n + 1
    )
@@ -62,11 +62,11 @@ Order.create!([
    Order.create!(
      customer_id: n + 1,
      address: "奈良県奈良市奈良公園9-8-#{n + 1}",
-     post_code: "123456#{n + 1}",
+     post_code: "1234567",
      name: "テスト乃助#{n + 1}",
      postage: "800",
-     total_price: "#{n * 800 + 800}",
-     payment_method: "クレジットカード"
+     total_payment: "#{n * 800 + 800}",
+     payment_method: 0
    )
  end
 
@@ -74,11 +74,11 @@ Order.create!([
    Order.create!(
      customer_id: n + 1,
      address: "奈良県奈良市奈良公園9-8-#{n + 1}",
-     post_code: "123456#{n + 1}",
+     post_code: "1234567",
      name: "test#{n + 1}",
      postage: "800",
-     total_price: "#{n * 800 + 800}",
-     payment_method: "銀行振込"
+     total_payment: "#{n * 800 + 800}",
+     payment_method: 1
    )
  end
 
