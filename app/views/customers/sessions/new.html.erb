@@ -20,7 +20,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "ログイン",　class: "btn btn-primary" %>
+    <%= f.submit "ログイン", class: "btn btn-primary" %>
   </div>
   <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <%= link_to "=> パスワードを忘れた方はこちら", new_password_path(resource_name) %><br />
