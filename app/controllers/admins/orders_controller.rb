@@ -1,6 +1,7 @@
 class Admins::OrdersController < ApplicationController
 
 	def index
+		@customers = Customer.page(params[:page]).per(10)
 	end
 
 	def show
@@ -8,5 +9,5 @@ class Admins::OrdersController < ApplicationController
 
 	def update
 	end
-	
+
 end
