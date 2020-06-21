@@ -18,7 +18,9 @@
 				<%= order.address %>
 				<%= order.total_payment %>
 			</td>
-			<td><%= order.items %></td>
+			<% @items.each do |item| %>
+			<td><%= order.item.name %></td>
+			<% end %>
 			<td><%= order.total_payment %></td>
 			<td><%= order.order_status %></td>
 			<td><%= link to "表示する", customers_order_path, class: "btn btn-primary" %></td>
