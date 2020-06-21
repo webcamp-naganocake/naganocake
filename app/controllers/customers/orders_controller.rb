@@ -22,7 +22,8 @@ class Customers::OrdersController < ApplicationController
 	end
 
 	def index
-		@orders=Order.all
+		@orders = Order.all
+		@items = Item.
 	end
 
 	def show
