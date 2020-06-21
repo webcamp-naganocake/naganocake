@@ -25,3 +25,21 @@ Admin.create!(
    )
 end
 
+
+# テストのために以下記述
+
+Genre.create!(
+   name: "ケーキ",
+   is_genres_status: false
+)
+
+12.times do
+   Item.create!(
+      name: "cake",
+      genre_id: 1,
+      description: "商品説明商品説明商品説明",
+      price_without_tax: 1000,
+      is_sales_status: false
+   )
+end
+
