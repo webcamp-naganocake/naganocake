@@ -10,7 +10,7 @@
 		<%= form_for(@cart_item , url: customers_cart_items_path(item_id: @item), method: :post) do |form| %>
 		<h3><%= @item.name %></h3>
 		<%= @item.description %>
-		¥ <%= @item.price_without_tax*1.08 %> (税込)
+		¥ <%= @item.price_without_tax*1.1.floor %> (税込)
   		<%= form.select :quantity, [['1個', 1], ['2個', 2], ['3個', 3], ['4個', 4], ['5個', 5], ['6個', 6], ['7個', 7], ['8個', 8], ['9個', 9]], {:prompt => "個数選択"}, class:"col-xs-4" %>
   		<span></span>
   			  <%= form.submit "カートに入れる", class:"btn btn-primary col-xs-4" %>
