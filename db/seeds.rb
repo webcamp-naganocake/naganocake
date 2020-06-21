@@ -25,6 +25,7 @@ Admin.create!(
    )
 end
 
+
 # テストのために以下記述
 
 Genre.create!(
@@ -41,3 +42,4 @@ Genre.create!(
       is_sales_status: false
    )
 end
+
