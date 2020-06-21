@@ -1,7 +1,7 @@
 <br><br>
 <!-- 改行する方法がこれで良いのか -->
   <div class="col-md-6">
-      <h2>会員一覧</h2><br>
+      <h2>注文一覧</h2><br>
   </div>
 
     <div class="row">
@@ -9,29 +9,23 @@
       <table class="table">
         <thead>
           <tr>
-            <th>会員一覧</th>
-            <th>氏名</th>
-            <th>メールアドレス</th>
-            <th>ステータス</th>
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>注文個数</th>
+            <th>注文ステータス</th>
             <th colspan="1"></th>
           </tr>
         </thead>
 
         <tbody>
-          <% @customers.each do |customer| %>
+          <% @orders.each do |order| %>
             <tr>
-              <td><%= customer.id %></td>
-              <td><%= link_to customer.first_name ,admins_order_path(customer) %></td>
-              <td><%= customer.email %></td>
-              <td><% if customer.is_customer_status == true %>
-              有効
-              <% else %>
-              退会済
-              <% end %>
-              </td>
+              <td><%= order.created_at %></td>
+              <td><%= order.name %></td>
+              <td></td>
+              <td></td>
             </tr>
             <% end %>
-            <%= paginate @customers %>
         </tbody>
       </table>
     </div>
