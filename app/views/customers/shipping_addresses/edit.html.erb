@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-xs-12">
+      <h3><strong>配送先編集</strong></h3>
+        <%= form_with(model: @shipping_address, url:customers_shipping_address_path, local: true , method: :patch) do |f| %>
+            <div class="shipping_addres col-xs-10">
+                <div class="form-group col-xs-12">
+                    <%= f.label :"郵便番号(ハイフンなし)" ,class: "col-xs-3 control-label" %>
+                    <%= f.text_field :postal_code, class: "col-xs-4 form-control-static postal_code" %>
+                </div>
+
+                <div class="form-group col-xs-12">
+                    <%= f.label :"住所" ,class: "col-xs-3 control-label" %>
+                    <%= f.text_field :address, class: "col-xs-7 form-control-static address" %>
+                </div>
+
+                <div class="form-group col-xs-12">
+                    <%= f.label :"宛名" ,class: "col-xs-3 control-label" %>
+                    <%= f.text_field :name, class: "col-xs-4 form-control-static name" %>
+                </div>
+                <%= f.submit '編集する' ,class: "col-xs-2 pull-right btn-lg btn-success " %>
+            </div>
+        <% end %>
+    </div>
+</div>
