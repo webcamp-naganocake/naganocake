@@ -6,7 +6,7 @@
       </div>
         <table class="table table-hover table-bordered col-xs-10" >
          <thead>
-          <tr class="bg-success">
+          <tr class="info">
             <th class="col-xs-3">商品名</th>
             <th class="col-xs-2">単価（税込み）</th>
             <th class="col-xs-1">数量</th>
@@ -25,7 +25,7 @@
                   <%= c.number_field :quantity, min:1, max:10000, step:1 %>
                   <%= c.submit "変更", class: "btn btn-primary" %>
                 </p>
-                <% end%>
+                <% end %>
             </td>
             <td class="col-xs-1">
                 ¥<%= (cart_item.item.price_without_tax * cart_item.quantity * 1.1).floor %>
@@ -49,8 +49,8 @@
 <div class="col-xs-4">
     <table class="table table-bordered">
         <tr>
-            <td class="bg-success col-xs-2"><strong>合計金額</strong></td>
-            <td class="col-xs-2"><%=  %></td>
+            <td class="info col-xs-2"><strong>合計金額</strong></td>
+            <td class="col-xs-2">¥<%= @total_price.floor %></td>
         </tr>
     </table>
 </div>
