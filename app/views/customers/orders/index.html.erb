@@ -16,9 +16,13 @@
 			<td class="col-xs-3"><%= order.created_at.strftime('%Y/%m/%d') %></td>
 			<td class="col-xs-2"><%= order.post_code %>
 				<%= order.address %>
-				<%= order.total_payment %>
+				<%= order.name %>
 			</td>
-			<td class="col-xs-1"><%= order.name %></td>
+			<td class="col-xs-1">
+				<% order.order_details.each do |order_detail| %>
+				<%= order_detail.item.name %>
+			<% end %>
+			</td>
 			<td class="col-xs-2"><%= order.total_payment %></td>
 			<td class="col-xs-2"><%= order.order_status %></td>
 			<td><%= link_to "表示する", customers_order_path(order), class: "btn btn-primary" %></td>
