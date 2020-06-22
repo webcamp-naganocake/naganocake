@@ -77,7 +77,7 @@ Order.create!([
      post_code: "1234567",
      name: "test#{n + 1}",
      postage: "800",
-     total_payment: "#{n * 800 + 800}",
+     total_payment: "#{n * 800}",
      payment_method: 1
    )
  end
@@ -87,6 +87,6 @@ Order.create!([
      order_id: n + 1,
      item_id: n + 1,
      quantity: n + 3,
-     price: "#{1000 + (n * 1000)}"
+     price: "#{n * 800}"
    )
  end

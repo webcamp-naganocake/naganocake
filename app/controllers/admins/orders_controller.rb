@@ -6,8 +6,7 @@ class Admins::OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
-		@order_details = @order.order_details.all
-		
+		@order_details = @order.order_details
 	end
 
 	def total(items_total_price)
