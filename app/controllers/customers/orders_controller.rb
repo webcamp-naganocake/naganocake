@@ -23,7 +23,6 @@ class Customers::OrdersController < ApplicationController
 
 	def index
 		@orders = Order.all
-		@items = Item.
 	end
 
 	def show
@@ -33,5 +32,5 @@ class Customers::OrdersController < ApplicationController
     def order_params
        params.require(:order).permit(:customer_id, :postage, :total_payment, :payment_method, :ordr_status, :post_code, :address, :name)
     end
-
 end
+
