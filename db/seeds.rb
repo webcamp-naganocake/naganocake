@@ -47,3 +47,46 @@ Order.create!([
   {customer_id:1, postage:800, total_payment:1880, payment_method:1, order_status:1, post_code:"211-1111", address:"大阪府大阪市1-1-1 dmmビル1階", name:"姓1 名1"},
     {customer_id:2, postage:800, total_payment:1300, payment_method:1, order_status:2, post_code:"111-1111", address:"大阪府大阪市1-1-1 dmmビル2階", name:"姓2 名2"}
   ])
+
+  20.times do |n|
+   ShippingAddress.create!(
+     name: "テスト太郎#{n + 1}",
+     postal_code: "1234567",
+     address: "京都府京都市山科区1-2-#{n + 1}",
+     customer_id: n + 1
+   )
+ end
+
+
+ 5.times do |n|
+   Order.create!(
+     customer_id: n + 1,
+     address: "奈良県奈良市奈良公園9-8-#{n + 1}",
+     post_code: "1234567",
+     name: "テスト乃助#{n + 1}",
+     postage: "800",
+     total_payment: "#{n * 800 + 800}",
+     payment_method: 0
+   )
+ end
+
+ 5.times do |n|
+   Order.create!(
+     customer_id: n + 1,
+     address: "奈良県奈良市奈良公園9-8-#{n + 1}",
+     post_code: "1234567",
+     name: "test#{n + 1}",
+     postage: "800",
+     total_payment: "#{n * 800 + 800}",
+     payment_method: 1
+   )
+ end
+
+ 5.times do |n|
+   OrderDetail.create!(
+     order_id: n + 1,
+     item_id: n + 1,
+     quantity: n + 3,
+     price: "#{1000 + (n * 1000)}"
+   )
+ end
