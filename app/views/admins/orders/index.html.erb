@@ -20,12 +20,13 @@
         <tbody>
           <% @orders.each do |order| %>
             <tr>
-              <td><%= order.created_at %></td>
+              <td><%= link_to order.created_at, admins_order_path(order) %></td>
               <td><%= order.name %></td>
               <td></td>
-              <td></td>
+              <td><%= order.order_status %></td>
             </tr>
             <% end %>
+            <%= paginate @orders %>
         </tbody>
       </table>
     </div>
