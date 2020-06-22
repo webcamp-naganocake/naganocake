@@ -72,8 +72,8 @@ Order.create!([
 
  5.times do |n|
    Order.create!(
-     customer_id: n + 1,
-     address: "奈良県奈良市奈良公園9-8-#{n + 1}",
+     customer_id: 6 * n + 1,
+     address: "和歌山県和歌山市9-8-#{n + 1}",
      post_code: "1234567",
      name: "test#{n + 1}",
      postage: "800",
@@ -87,6 +87,6 @@ Order.create!([
      order_id: n + 1,
      item_id: n + 1,
      quantity: n + 3,
-     price: "#{1000 + (n * 1000)}"
+     price: "#{n * 800}"
    )
  end
