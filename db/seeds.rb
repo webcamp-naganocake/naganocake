@@ -72,12 +72,12 @@ Order.create!([
 
  5.times do |n|
    Order.create!(
-     customer_id: n + 1,
-     address: "奈良県奈良市奈良公園9-8-#{n + 1}",
+     customer_id: 6 * n + 1,
+     address: "和歌山県和歌山市9-8-#{n + 1}",
      post_code: "1234567",
      name: "test#{n + 1}",
      postage: "800",
-     total_payment: "#{n * 800}",
+     total_payment: "#{n * 800 + 800}",
      payment_method: 1
    )
  end
