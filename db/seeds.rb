@@ -43,3 +43,7 @@ Genre.create!(
    )
 end
 
+Order.create!([
+  {customer_id:1, postage:800, total_payment:1880, payment_method:1, order_status:1, post_code:"211-1111", address:"大阪府大阪市1-1-1 dmmビル1階", name:"姓1 名1"},
+    {customer_id:2, postage:800, total_payment:1300, payment_method:1, order_status:2, post_code:"111-1111", address:"大阪府大阪市1-1-1 dmmビル2階", name:"姓2 名2"}
+  ])
