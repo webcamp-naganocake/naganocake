@@ -37,7 +37,7 @@ Genre.create!(
    Item.create!(
       name: "cake",
       genre_id: 1,
-      description: "商品説明",
+      description: "商品説明商品説明商品説明",
       price_without_tax: 1000,
       is_sales_status: false
    )
@@ -71,22 +71,22 @@ Order.create!([
  end
 
  5.times do |n|
-   Order.create!(
-     customer_id: 6 * n + 1,
-     address: "和歌山県和歌山市9-8-#{n + 1}",
-     post_code: "1234567",
-     name: "test#{n + 1}",
-     postage: "800",
-     total_payment: "#{n * 800 + 800}",
-     payment_method: 1
-   )
- end
+    Order.create!(
+      customer_id: 6 * n + 1,
+      address: "和歌山県和歌山市9-8-#{n + 1}",
+      post_code: "1234567",
+      name: "test#{n + 1}",
+      postage: "800",
+      total_payment: "#{n * 800 + 800}",
+      payment_method: 1
+    )
+  end
 
- 5.times do |n|
-   OrderDetail.create!(
-     order_id: n + 1,
-     item_id: n + 1,
-     quantity: n + 3,
-     price: "#{n * 800}"
-   )
- end
+  5.times do |n|
+    OrderDetail.create!(
+      order_id: n + 1,
+      item_id: n + 1,
+      quantity: n + 3,
+      price: "#{n * 800}"
+    )
+  end

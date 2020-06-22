@@ -1,0 +1,101 @@
+<br><br>
+<!-- 改行する方法がこれで良いのか -->
+  <div class="row">
+      <h2>注文明細</h2><br>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-sm-9">
+
+  <table class="table table-border-less">
+    <tbody>
+      <tr>
+        <td>購入者</td>
+        <td><%= link_to admins_customer_path(@order.customer) do %>
+        <%= @order.customer.last_name %>
+        <%= @order.customer.first_name %>
+        <% end %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>配送先</td>
+        <td><%= @order.address %></td>
+      </tr>
+
+      <tr>
+        <td>支払方法</td>
+        <td><%= @order.payment_method %></td>
+      </tr>
+
+      <tr>
+        <td>注文ステータス</td>
+        <td>
+        <%= form_for (@order), url:admins_order_path(@order) do |f| %>
+        <%= f.select :order_status,Order.order_statuses.keys.to_a %>
+        <%= f.submit "更新", class: "btn btn-primary" %>
+        <% end %>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+  </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-sm-9">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価（税込）</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>製作ステータス</th>
+            <th colspan="1"></th>
+          </tr>
+        </thead>
+
+        <% @order_details.each do |order_detail| %>
+        <tbody>
+          <tr>
+            <td><%= order_detail.item.name %></td>
+            <td><%= (order_detail.price * 1.1).floor %></td>
+            <td><%= order_detail.quantity %></td>
+            <td><%= (order_detail.price * order_detail.quantity * 1.1).floor %></td>
+            <td>
+              <%= form_for (order_detail), url:admins_order_path(@order) do |f|  %>
+              <%= f.select :making_status, OrderDetail.making_statuses.keys.to_a %>
+              <%= f.submit '更新',class:"btn btn-primary" %>
+              <% end %>
+            </td>
+          </tr>
+
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+
+    <div class="col-sm-3 d-flex">
+      <table class="table table-borderless align-self-end">
+        <tbody>
+
+          <tr class="border-bottom border-dark">
+            <td>商品合計</td>
+            <td><%= @order.total_payment %></td>
+          </tr>
+
+          <tr class="border-bottom border-dark">
+            <td>送料</td>
+            <td><%= @order.postage %></td>
+          </tr>
+
+          <tr class="border-bottom border-dark">
+            <td>請求合計金額</td>
+            <td><%= @order.postage + @order.total_payment %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
