@@ -18,9 +18,10 @@ Rails.application.routes.draw do
    get 'customers/edit' => 'customers#edit'
    patch 'update' => 'customers#update'
    get 'quit' => 'customers#quit'
-   resources :orders, only: [:create, :index, :show]
+   get 'orders/new' => 'orders#new', as: 'orders_new'
+   resources :orders, only: [:index, :show]
+   post 'orders' => 'orders#create', as: 'orders_create'
    post 'orders' => 'orders#new'
-   get 'orders' => 'orders#new'
    get 'orders/about' => 'orders#about'
    get 'orders/complete' => 'orders#complete'
    resources :cart_items, only: [:index, :create, :update, :destroy]

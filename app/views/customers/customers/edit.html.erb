@@ -6,8 +6,8 @@
         <div class="col-xs-10">
             <div class="form-group col-xs-12">
               <%= f.label :"氏名", class: "col-sm-3 control-label" %>
-              <%= f.text_field :last_name, class: "last_name col-sm-3 form-control-static name" %>
-              <%= f.text_field :first_name, class: "first_name col-sm-3 form-control-static name" %>
+              <div><%= f.text_field :last_name, class: "last_name col-sm-3 form-control-static name" %></div>
+              <div><%= f.text_field :first_name, class: "first_name col-sm-3 form-control-static name" %></div>
             </div>
             <div class="form-group col-xs-12">
               <%= f.label :"フリガナ", class: "col-sm-3 control-label" %>
@@ -33,7 +33,7 @@
         </div>
         <div class="actions col-xs-10 col-xs-offset-2">
         <p>
-          <%= f.submit "編集内容を保存する", class: "btn btn-primary col-sm-6" %>
+          <%= f.submit "編集内容を保存する", class: "btn btn-primary col-sm-3" %>
           <%= link_to " 退会する", customers_quit_path, class: "glyphicon glyphicon-tint btn btn-danger col-sm-3"%>
         </p>
         </div>

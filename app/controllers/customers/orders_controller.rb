@@ -5,14 +5,8 @@ class Customers::OrdersController < ApplicationController
 	end
 
 	def new
-		@order = Order.new(order_params)
-		@order.customer_id = current_customer.id
-		# 確認画面へのパス確定後、コメントアウト解除
-		# if @order.save
-			# redirect_to 確認画面へのパス
-		# else
-			# render 'customers_orders_about'
-		# end
+		@cart_items = current_customer.cart_items
+		
 	end
 
 	def create
@@ -36,3 +30,9 @@ class Customers::OrdersController < ApplicationController
     end
 end
 
+
+
+# local: trueがない場合、Rails 5ではAjaxによる送信という意味になります。ふつうにHTMLとしてフォームを送信する場合にlocal:trueが必要となります。
+# hidden_field:ユーザーに見せる必要はないシステム内の処理をするのに必要な画面情報（ID値や商品名など）を画面に保持しておき、次の処理のときに渡すためのパラメータなどを格納しておくといった役割です。
+
+ 
