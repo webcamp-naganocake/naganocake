@@ -1,6 +1,6 @@
 <body>
 
-	<%= render 'admins/genres/sidebar' %>
+	<%= render 'admins/genres/sidebar', genres: @genres %>
 
 	<div class="col-xs-9">
 		<h2>商品一覧(全<%= @items.count %>件)</h2>

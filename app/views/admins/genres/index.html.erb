@@ -1,13 +1,16 @@
 
 <!-- my = 上下のマージン
  5 = 5rem = 80px rem（root em）は相対的なサイズを表す単位。remはルート要素(今回は多分16px?)を基準に相対的なサイズを定める。-->
-<br><br><br><br>
+
 <!-- 改行する方法がこれで良いのか -->
   <div class="row">
-      <h2>ジャンル追加・一覧</h2><br>
+    <div class="col-xs-10 col-xs-offset-1">
 
+      <h2>ジャンル追加・一覧画面</h2><br>
+
+    <div class="form-group col-md-10">
     <%= form_for(@genre, url: admins_genres_path) do |f| %>
-        <div class="form-group col-md-10">
+
 
           <%= f.label :ジャンル %>
           <%= f.text_field :name,class: "col-md-4" %>
@@ -17,19 +20,17 @@
           <%= f.radio_button :is_genres_status, :false %>
           <%= f.label :is_genres_status, "無効" %>
           <%= f.submit "追加" ,class: "btn btn-primary" %>
-        </div>
+
     <% end %>
-  </div>
+    </div>
 
     <br>
-    <div class="row mt-5">
       <!-- ofsetは左右の余白 -->
-      <table class="table">
+      <table class="table genre-index">
         <thead>
           <tr>
             <th>ジャンル</th>
             <th>状態</th>
-            <th colspan="1"></th>
           </tr>
         </thead>
 
@@ -38,7 +39,7 @@
             <tr>
               <td><%= genre.name %></td>
               <td>
-                <% if genre.is_genres_status == true %>
+                <% if genre.is_genres_status %>
                 有効
                 <% else %>
                 無効
@@ -49,4 +50,5 @@
             <% end %>
         </tbody>
       </table>
-    </div>
+  </div>
+</div>
