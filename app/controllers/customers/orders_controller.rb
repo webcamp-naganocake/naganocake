@@ -1,13 +1,12 @@
 class Customers::OrdersController < ApplicationController
 
 	def about
-		@order = Order.new(order_params)
+		@order = Order.new
 		@customer = current_customer
 		@addresses = ShippingAddress.where(customer_id: current_customer.id)
 	end
 
 	def new
-		@order = Order.new(order_params)
 		@order.customer_id = current_customer
 		@a = params[:order][:a_mathod]
 		if @a == 0
@@ -21,6 +20,7 @@ class Customers::OrdersController < ApplicationController
 			@order.name = params[:order][:shipping_address_for_order].name 
 
 		elsif @a == 2
+			@order = Order.new
 
 		else
 			render 'customers_orders_about'
@@ -30,9 +30,9 @@ class Customers::OrdersController < ApplicationController
 
 	def create
 		@order = Order.new(order_params)
-
+		@order_detail = OrderDetail.new(order_detail_params)
 		@order.save
-		redirect_to サンクスページ
+		redirect_to customers_orders_complete_path
 	end
 
 	def complete
@@ -49,9 +49,16 @@ class Customers::OrdersController < ApplicationController
 
 	private
     def order_params
-       params.require(:order).permit(:customer_id:postage, :total_payment, :payment_method, :ordr_status, :post_code, :address, :name)
+       params.require(:order).permit(:customer_id, :postage, :total_payment, :payment_method, :ordr_status, :post_code, :address, :name)
     end
-end
+
+
+    def order_detail_params
+       params.require(:order_detail).permit(:order_id, :item_id, :quantity, :making_status, :price)
+    end
+
+  end
 
 end
+
 
