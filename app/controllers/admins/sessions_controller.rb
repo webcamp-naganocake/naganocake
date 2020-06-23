@@ -2,6 +2,13 @@
 
 class Admins::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+   #ログイン後に遷移するpathを設定
+  def after_sign_in_path_for(resource)
+    admins_top
+  end
+  #sign_out後のredirect先
 
   # GET /resource/sign_in
   # def new

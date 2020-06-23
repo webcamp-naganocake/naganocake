@@ -37,7 +37,7 @@ Genre.create!(
    Item.create!(
       name: "cake",
       genre_id: 1,
-      description: "商品説明商品説明商品説明",
+      description: "商品説明",
       price_without_tax: 1000,
       is_sales_status: false
    )
@@ -90,3 +90,5 @@ Order.create!([
      price: "#{n * 800}"
    )
  end
+ end
+
