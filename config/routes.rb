@@ -11,18 +11,17 @@ Rails.application.routes.draw do
     resources :items, only: [:show, :index]
    end
 
-
   namespace :customers do
    patch 'customers/withdraw' => 'customers#withdraw', as: 'customers_withdraw'
    get 'show' => 'customers#show'
    get 'customers/edit' => 'customers#edit'
    patch 'update' => 'customers#update'
    get 'quit' => 'customers#quit'
-   resources :orders, only: [:create, :index, :show]
-   post 'orders' => 'orders#new'
-   get 'orders' => 'orders#new'
-   get 'orders/about' => 'orders#about'
+   get 'orders/about' => 'orders#about', as: 'orders_about'
+   post 'orders' => 'orders#save'
+   get 'orders' => 'orders#confirm'
    get 'orders/complete' => 'orders#complete'
+   resources :orders, only: [:create, :index, :show]
    resources :cart_items, only: [:index, :create, :update, :destroy]
    delete 'cart_items' => 'cart_items#all_destroy', as: 'all_destroy'
    resources :shipping_addresses, only: [:index, :create, :destroy, :edit, :update]
