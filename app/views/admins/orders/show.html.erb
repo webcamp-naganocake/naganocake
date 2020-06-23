@@ -1,14 +1,12 @@
-<br><br>
-<!-- 改行する方法がこれで良いのか -->
+
+<div class="col-xs-10 col-xs-offset-1">
   <div class="row">
-      <h2>注文明細</h2><br>
-  </div>
+      <h2>注文明細</h2>
 
-  <div class="row mt-3">
-    <div class="col-sm-9">
 
-  <table class="table table-border-less">
-    <tbody>
+  <div class="col-xs-7">
+    <table class="table">
+      <tbody>
       <tr>
         <td>購入者</td>
         <td><%= link_to admins_customer_path(@order.customer) do %>
@@ -33,19 +31,15 @@
         <td>
         <%= form_for (@order), url:admins_order_path(@order) do |f| %>
         <%= f.select :order_status,Order.order_statuses.keys.to_a %>
-        <%= f.submit "更新", class: "btn btn-primary" %>
+        <%= f.submit "更新", class: "btn btn-success" %>
         <% end %>
         </td>
       </tr>
 
     </tbody>
   </table>
-  </div>
-  </div>
 
-  <div class="row mt-3">
-    <div class="col-sm-9">
-      <table class="table table-hover">
+      <table class="table">
         <thead>
           <tr>
             <th>商品名</th>
@@ -53,7 +47,6 @@
             <th>数量</th>
             <th>小計</th>
             <th>製作ステータス</th>
-            <th colspan="1"></th>
           </tr>
         </thead>
 
@@ -67,35 +60,37 @@
             <td>
               <%= form_for (order_detail), url:admins_order_path(@order) do |f|  %>
               <%= f.select :making_status, OrderDetail.making_statuses.keys.to_a %>
-              <%= f.submit '更新',class:"btn btn-primary" %>
+              <%= f.submit '更新',class:"btn btn-success" %>
               <% end %>
             </td>
           </tr>
 
+          <% end %>
         </tbody>
-        <% end %>
       </table>
     </div>
 
-    <div class="col-sm-3 d-flex">
-      <table class="table table-borderless align-self-end">
+    <br><br><br><br><br><br><br><br><br><br>
+    <div class="col-xs-4">
+      <table class="table">
         <tbody>
 
-          <tr class="border-bottom border-dark">
+          <tr>
             <td>商品合計</td>
             <td><%= @order.total_payment %></td>
           </tr>
 
-          <tr class="border-bottom border-dark">
+          <tr>
             <td>送料</td>
             <td><%= @order.postage %></td>
           </tr>
 
-          <tr class="border-bottom border-dark">
+          <tr>
             <td>請求合計金額</td>
             <td><%= @order.postage + @order.total_payment %></td>
           </tr>
         </tbody>
       </table>
+     </div>
     </div>
   </div>

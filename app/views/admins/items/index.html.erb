@@ -1,14 +1,12 @@
-<br><br>
-<!-- 改行する方法がこれで良いのか -->
-  <div class="col-md-6">
-      <h2>商品一覧</h2><br>
+
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+      <h2>商品一覧</h2>
+
+  <div class="text-right">
+      <%= link_to "新規登録" ,new_admins_item_path, class:"btn btn-lg btn-primary" %>
   </div>
 
-  <div class="col-md-6 text-right">
-      <%= link_to "新規登録" ,new_admins_item_path, class:"btn btn-lg" %>
-  </div>
-
-    <div class="row mt-5">
       <!-- ofsetは左右の余白 -->
       <table class="table">
         <thead>
@@ -18,7 +16,6 @@
             <th>税抜価格</th>
             <th>ジャンル</th>
             <th>ステータス</th>
-            <th colspan="1"></th>
           </tr>
         </thead>
 
@@ -41,3 +38,4 @@
         </tbody>
       </table>
     </div>
+  </div>

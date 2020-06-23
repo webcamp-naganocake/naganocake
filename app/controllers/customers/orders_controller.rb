@@ -53,3 +53,6 @@ class Customers::OrdersController < ApplicationController
        params.permit(:postage, :total_payment, :payment_method, :ordr_status, :post_code, :address, :name)
     end
 end
+
+end
+
