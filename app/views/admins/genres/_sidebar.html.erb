@@ -2,11 +2,11 @@
     <h3>ジャンルから探す</h3>
     <table class="genres">
         <ul style="list-style: none;">
-          <%# <% genres.each do |genre| %>
-           <%# <%= link_to genre_items_path(genre) do %>
-           <%# <%= genre.name %>
-           <%# <% end %>
-           <%# <% end %> 
+          <% genres.each do |genre| %>
+           <%= link_to item_path(genre) do %>
+           <%= genre.name %>
+           <% end %>
+           <% end %>
         </ul>
     </table>
 </div>

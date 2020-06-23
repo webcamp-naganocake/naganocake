@@ -1,48 +1,58 @@
-<br><br>
-<!-- 改行する方法がこれで良いのか -->
-  <div class="col-md-12 col-xl-12">
-      <h2>商品編集</h2><br>
-  </div>
 
-  <%= form_for(@item, url: admins_item_path) do |f| %>
-
+  <div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
     <div class="row">
+    <%= form_for(@item, url: admins_items_path) do |f| %>
 
-      <div class="col-md-5 col-xl-5">
-        <%= f.label :商品画像 %>
+    <div class="col-xs-5">
+     <h2>商品新規登録</h2>
+
+      <div class="item-new-form">
         <%= f.attachment_field :image %>
       </div>
-
-      <div class="col-md-7 col-xl-7">
-        <div class="items-group">
-          <%= f.label :商品名 %>
-          <%= f.text_field :name  %>
-        </div>
-
-        <div class="items-group">
-          <%= f.label :商品説明 %>
-          <%= f.text_area :description %>
-        </div>
-
-        <div class="items-group">
-          <%= f.label :ジャンル %>
-          <%= f.collection_select :genre_id, Genre.all ,:id, :name %>
-        </div>
-
-        <div class="items-group">
-          <%= f.label :税抜価格 %>
-          <%= f.text_field :price_without_tax %>
-        </div>
-        <div class="items-group">
-          <%= f.label :販売ステータス %>
-          <%= f.select :is_sales_status, [["販売中","true"], ["販売不可","false"]] %>
-        </div>
+      <div class="product-img" style="margin-top: 20px;">
+      <%= attachment_image_tag @item, :image, :fill, 400, 400, fallback: 'no_image.jpg' %>
       </div>
     </div>
 
-      <div class="col-md-offset-1 col-
-        md-2 text-right">
-        <%= f.submit "変更を保存" ,class: "btn btn-primary " %>
-      </div>
+    <br><br><br>
+      <div class="col-xs-5 col-xs-offset-2">
+        <table class="new-form-table">
+          <tbody>
 
-  <% end %>
+            <tr>
+              <th>商品名</th>
+              <td><%= f.text_field :name, class: "form-control" %></td>
+            </tr>
+
+            <tr>
+              <th>商品説明</th>
+              <td><%= f.text_area :description, class: "form-control" %></td>
+            </tr>
+
+            <tr>
+              <th>ジャンル</th>
+              <td>          <%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %></td>
+            </tr>
+
+            <tr>
+              <th>税抜価格</th>
+              <td>  <%= f.text_field :price_without_tax, class: "form-control" %></td>
+            </tr>
+
+            <tr>
+              <th>販売ステータス</th>
+              <td><%= f.select :is_sales_status, [["販売中","true"], ["販売不可","false"]], include_blank: "--選択してください--" %></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="text-right">
+        <%= f.submit "新規登録" ,class: "btn btn-primary text-right" %>
+        </div>
+        </div>
+        <% end %>
+
+    </div>
+  </div>
+</div>

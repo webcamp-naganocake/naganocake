@@ -5,4 +5,8 @@ class ShippingAddress < ApplicationRecord
   validates :address, presence: true
   validates :name, presence: true
 
+  def shipping_address_for_order
+  	self.postal_code + self.address + self.name
+  end
+
 end

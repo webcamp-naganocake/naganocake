@@ -1,6 +1,6 @@
 <body>
 
-	<%= render 'admins/genres/sidebar' %>
+	<%= render 'admins/genres/sidebar', genres: @genres %>
 
 	<div class="col-xs-4">
 		<%= attachment_image_tag @item, :image, :fill, 100, 50, format: 'jpeg',fallback: "no_image.jpg", size:'300x150' %>
