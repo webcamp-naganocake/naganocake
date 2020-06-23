@@ -1,61 +1,56 @@
-<br><br>
-<!-- 改行する方法がこれで良いのか -->
-  <div class="col-md-12 col-xl-12">
-      <h2>会員情報編集</h2><br>
-  </div>
+
+  <h2>会員情報編集</h2>
 
   <%= form_for(@customer, url: admins_customer_path) do |f| %>
 
-    <div class="row">
+  <table class="row table">
+    <tr>
+      <th class="col-xs-2"><%= f.label :会員ID %></th>
+      <td class="col-xs-10"><%= f.text_field :id  , class:"form-control"%></td>
+    </tr>
 
-      <div class="col-md-7 col-xl-7">
-        <div class="customers-group">
-          <%= f.label :会員ID %>
-          <%= f.text_field :id  %>
-        </div>
+    <tr>
+      <th><%= f.label :氏名 %></th>
+      <td><%= f.text_field :last_name, class:"form-control" %><br>
+          <%= f.text_field :first_name, class:"form-control" %>
+      </td>
+    </tr>
 
-        <div class="customers-group">
-          <%= f.label :氏名 %>
-          <%= f.text_field :last_name %>
-          <%= f.text_field :first_name %>
-        </div>
+    <tr>
+      <th><%= f.label :フリガナ %></th>
+      <td><%= f.text_field :last_name_kana, class:"form-control" %><br>
+      <%= f.text_field :first_name_kana, class:"form-control" %>
+      </td>
+    </tr>
 
-        <div class="customers-group">
-          <%= f.label :フリガナ %>
-          <%= f.text_field :last_name_kana %>
-          <%= f.text_field :first_name_kana %>
-        </div>
+    <tr>
+      <th><%= f.label :郵便番号 %></th>
+      <td><%= f.text_field :postal_code, class:"form-control" %></td>
+    </tr>
 
-        <div class="customers-group">
-          <%= f.label :郵便番号 %>
-          <%= f.text_field :postal_code %>
-        </div>
+    <tr>
+      <th><%= f.label :住所 %></th>
+      <td><%= f.text_field :address, class:"form-control" %></td>
+    </tr>
 
-        <div class="customers-group">
-          <%= f.label :住所 %>
-          <%= f.text_field :address %>
-        </div>
+    <tr>
+      <th><%= f.label :電話番号 %></th>
+      <td><%= f.text_field :phone_number, class:"form-control" %></td>
+    </tr>
 
-        <div class="customers-group">
-          <%= f.label :電話番号 %>
-          <%= f.text_field :phone_number %>
-        </div>
+    <tr>
+      <th><%= f.label :メールアドレス %></th>
+      <td><%= f.text_field :email , class:"form-control"%></td>
+    </tr>
 
-        <div class="customers-group">
-          <%= f.label :メールアドレス %>
-          <%= f.text_field :email %>
-        </div>
+    <tr>
+      <th><%= f.label :会員ステータス %></th>
+      <td><%= f.select :is_customer_status, [["有効会員","true"], ["退会済み","false"]], class:"form-control" %></td>
+    </tr>
+  </table>
 
-        <div class="customers-group">
-          <%= f.label :会員ステータス %>
-          <%= f.select :is_customer_status, [["有効会員","true"], ["退会済み","false"]] %>
-        </div>
+
+      <div class="row text-right">
+        <%= f.submit "変更を保存する" ,class: "btn btn-success " %>
       </div>
-    </div>
-
-      <div class="col-md-offset-1 col-
-        md-2 text-right">
-        <%= f.submit "変更を保存する" ,class: "btn btn-primary " %>
-      </div>
-
   <% end %>
