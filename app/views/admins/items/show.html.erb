@@ -1,15 +1,12 @@
 
-<!-- 改行する方法がこれで良いのか -->
-  <div class="col-md-12 col-xl-12">
+  <div class="row">
+  <div class="col-xs-4">
       <h2>商品詳細</h2><br>
+      <%= attachment_image_tag @item, :image, :fill, 400, 400, fallback: 'no_image.jpg' %>
   </div>
 
-    <div class="row">
-      <div class="col-md-5 col-xl-5">
-        <%= attachment_image_tag @item, :image, :fill, 400, 400, fallback: 'no_image.jpg' %>
-      </div>
-
-      <div class="col-md-7">
+      <br><br><br><br>
+      <div class="col-xs-8">
         <table class="table">
           <tbody>
             <tr>
@@ -40,9 +37,9 @@
             </tr>
           </tbody>
         </table>
-      </div>
-    </div>
         <div class="col-md-offset-1 col-
           md-2 text-right">
           <%= link_to "編集する", edit_admins_item_path(@item), class: "btn btn-primary" %>
         </div>
+      </div>
+    </div>
