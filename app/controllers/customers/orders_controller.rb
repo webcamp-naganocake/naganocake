@@ -6,7 +6,7 @@ class Customers::OrdersController < ApplicationController
 		@addresses = ShippingAddress.where(customer_id: current_customer.id)
 	end
 
-	def save
+	def new
 		@order = Order.new(order_params)
 		@order.customer_id = current_customer
 		@a = params[:order][:a_mathod]
@@ -14,26 +14,25 @@ class Customers::OrdersController < ApplicationController
 			@order.post_code = @customer.postal_code
 			@order.address = @customer.address
 			@order.name = @customer.last_name + @customer_first_name
-			@order.save
-			redirect_to customers_orders_path
+
 		elsif @a == 1
 			@order.post_code = params[:order][:shipping_address_for_order].postal_code
 			@order.address = params[:order][:shipping_address_for_order].address
 			@order.name = params[:order][:shipping_address_for_order].name 
-			@order.save
-			redirect_to customers_orders_path
+
 		elsif @a == 2
-			@order.save
-			redirect_to customers_orders_path
+
 		else
 			render 'customers_orders_about'
 		end
 	end
 
-	def confirm
-	end
 
 	def create
+		@order = Order.new(order_params)
+
+		@order.save
+		redirect_to サンクスページ
 	end
 
 	def complete
@@ -50,6 +49,6 @@ class Customers::OrdersController < ApplicationController
 
 	private
     def order_params
-       params.permit(:postage, :total_payment, :payment_method, :ordr_status, :post_code, :address, :name)
+       params.require(:order).permit(:customer_id:postage, :total_payment, :payment_method, :ordr_status, :post_code, :address, :name)
     end
 end
