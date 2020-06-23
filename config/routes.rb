@@ -17,7 +17,7 @@ Rails.application.routes.draw do
    get 'customers/edit' => 'customers#edit'
    patch 'update' => 'customers#update'
    get 'quit' => 'customers#quit'
-   get 'orders/about' => 'orders#about'
+   get 'orders/about' => 'orders#about', as: 'orders_about'
    post 'orders' => 'orders#save'
    get 'orders' => 'orders#confirm'
    get 'orders/complete' => 'orders#complete'
