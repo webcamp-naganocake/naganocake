@@ -18,7 +18,8 @@ Rails.application.routes.draw do
    patch 'update' => 'customers#update'
    get 'quit' => 'customers#quit'
    get 'orders/about' => 'orders#about', as: 'orders_about'
-   post 'orders' => 'orders#save'
+   post 'orders' => 'orders#new'
+   get 'orders/new' => 'orders#new', as: 'orders_new'
    get 'orders' => 'orders#confirm'
    get 'orders/complete' => 'orders#complete'
    resources :orders, only: [:create, :index, :show]

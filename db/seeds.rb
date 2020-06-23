@@ -100,5 +100,4 @@ Order.create!([
      price: "#{n * 800}"
    )
  end
- end
 

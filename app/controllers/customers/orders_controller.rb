@@ -7,8 +7,8 @@ class Customers::OrdersController < ApplicationController
 	end
 
 	def new
-		@order.customer_id = current_customer
-		@a = params[:order][:a_mathod]
+		@cart_items = current_customer.cart_items
+		@a = params[:a_mathod]
 		if @a == 0
 			@order.post_code = @customer.postal_code
 			@order.address = @customer.address
@@ -23,7 +23,7 @@ class Customers::OrdersController < ApplicationController
 			@order = Order.new
 
 		else
-			render 'customers_orders_about'
+			render customers_orders_about_path
 		end
 	end
 
@@ -48,17 +48,15 @@ class Customers::OrdersController < ApplicationController
 	end
 
 	private
-    def order_params
-       params.require(:order).permit(:customer_id, :postage, :total_payment, :payment_method, :ordr_status, :post_code, :address, :name)
-    end
+	    def order_params
+	       params.require(:order).permit(:customer_id, :postage, :total_payment, :payment_method, :ordr_status, :post_code, :address, :name)
+	    end
 
 
-    def order_detail_params
-       params.require(:order_detail).permit(:order_id, :item_id, :quantity, :making_status, :price)
-    end
+	    def order_detail_params
+	       params.require(:order_detail).permit(:order_id, :item_id, :quantity, :making_status, :price)
+	    end
 
-  end
-
-end
+	end
 
 

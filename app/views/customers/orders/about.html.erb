@@ -1,7 +1,7 @@
 <body>
 	<h3>注文情報入力</h3>
 	<h3>支払方法</h3>
-		<%= form_for(@order , url: customers_orders_path, method: :post) do |form| %>
+		<%= form_with(url: customers_orders_path, method: :post) do |form| %>
 			<!-- form.radio_button :カラム名, :保存される値(enumの番号) -->
 			<span>　　　</span><%= form.radio_button :payment_method, 0, checked: "checked" %>
   			<%= form.label :クレジットカード %><br>
