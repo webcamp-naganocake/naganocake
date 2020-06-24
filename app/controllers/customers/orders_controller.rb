@@ -6,36 +6,74 @@ class Customers::OrdersController < ApplicationController
 		@addresses = ShippingAddress.where(customer_id: current_customer.id)
 	end
 
+	def create
+		customer = current_customer
+		session[:order] = Order.new
+		address = ShippingAddress.find(params[:shipping_address_for_order])
+
+		cart_items = current_customer.cart_items
+		sum = 0
+		cart_items.each do |cart_item|
+			sum += (cart_item.item.price_without_tax * 1.1).floor * cart_item.quantity
+		end
+		session[:order][:postage] = 800
+		session[:order][:total_payment] = sum + session[:order][:postage]
+		session[:order][:order_status] = 0
+		session[:order][:customer_id] = current_customer.id
+		session[:order][:payment_method] = params[:method].to_i
+
+		a = params[:a_method].to_i
+		if a == 0
+
+			session[:order][:post_code] = customer.postal_code
+			session[:order][:address] = customer.address
+			session[:order][:name] = customer.last_name + customer.first_name
+
+		elsif a == 1
+
+
+			session[:order][:post_code] = address.postal_code
+			session[:order][:address] = address.address
+			session[:order][:name] = address.name 
+
+
+
+		elsif a == 2
+			session[:order][:post_code] = params[:post_code]
+			session[:order][:address] = params[:address]
+			session[:order][:name] = params[:name]
+
+		end
+
+		if session[:order][:post_code].presence && session[:order][:address].presence && session[:order][:name].presence
+			redirect_to new_customers_order_path
+		else
+			redirect_to customers_orders_about_path
+		end
+
+	end
+
+
 	def new
 		@cart_items = current_customer.cart_items
-		@a = params[:a_mathod]
-		if @a == 0
-			@order.post_code = @customer.postal_code
-			@order.address = @customer.address
-			@order.name = @customer.last_name + @customer_first_name
-
-		elsif @a == 1
-			@order.post_code = params[:order][:shipping_address_for_order].postal_code
-			@order.address = params[:order][:shipping_address_for_order].address
-			@order.name = params[:order][:shipping_address_for_order].name 
-
-		elsif @a == 2
-			@order = Order.new
-
-		else
-			render customers_orders_about_path
-		end
 	end
 
 
-	def create
-		@order = Order.new(order_params)
-		@order_detail = OrderDetail.new(order_detail_params)
-		@order.save
-		redirect_to customers_orders_complete_path
-	end
 
 	def complete
+		order = Order.new(session[:order])
+		order.save
+		cart_items = current_customer.cart_items
+		cart_items.each do |cart_item|
+			order_detail = OrderDetail.new
+			order_detail.order_id = order.id
+			order_detail.item_id = cart_item.id
+			order_detail.quantity = cart_item.quantity
+			order_detail.making_status = 0
+			order_detail.price = (cart_item.item.price_without_tax * 1.1).floor
+			order_detail.save
+		end
+		cart_items.destroy_all
 	end
 
 	def index
