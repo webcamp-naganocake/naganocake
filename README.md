@@ -96,12 +96,12 @@ You can check out the app on [Here]()!
 
 
 # 環境
-■開発環境
-　Vagrant
+■開発環境  
+　Vagrant  
 ■フレームワーク  
-　Ruby on Rails
-■データベース
-AWS RDS, PostgreSQL
+　Ruby on Rails  
+■データベース  
+AWS RDS, PostgreSQL  
 
 # インストール
 ```
