@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # customer側ルーティング
   devise_for :customers, controllers: {
    sessions:      'customers/sessions',
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
    end
 
   namespace :customers do
+   resources :genres, only: [:show]
    patch 'customers/withdraw' => 'customers#withdraw', as: 'customers_withdraw'
    get 'show' => 'customers#show'
    get 'customers/edit' => 'customers#edit'
