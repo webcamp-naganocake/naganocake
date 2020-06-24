@@ -47,13 +47,13 @@
             <tr>
               <th class="info">商品合計</th>
               <td class="col-xs-5">
-                ¥<%= @order.total_payment %>
+                ¥<%= @order.total_payment - @order.postage %>
               </td>
             </tr>
             <tr>
               <th class="info">ご請求金額</th>
               <td class="col-xs-5">
-                ¥<%= @order.postage + @order.total_payment %>
+                ¥<%= @order.total_payment %>
               </td>
             </tr>
         </table>

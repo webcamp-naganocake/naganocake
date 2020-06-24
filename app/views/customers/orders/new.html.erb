@@ -1,4 +1,4 @@
-注文確認画面<div class="row">
+<div class="row">
     <h3><strong>注文情報確認</strong></h3>
     <div class="col-xs-9">
       <table class="table table-hover table-inverse table-bordered">
@@ -42,13 +42,13 @@
           <tr>
             <th class="info">商品合計</th>
             <td class="text-right">
-              ¥<%=  %>
+              ¥<%=session[:order]["total_payment"] - session[:order]["postage"] %>
             </td>
           </tr>
           <tr>
             <th class="info">請求金額</th>
             <td class="text-right">
-              ¥<%=  %>
+              ¥<%= session[:order]["total_payment"] %>
             </td>
           </tr>
       </table>
@@ -58,28 +58,21 @@
         <tr>
           <th  class="info">支払方法</th>
           <td class="text-left">
-            <%=  %>
+            <%= session[:order]["payment_method"] %>
           </td>
         </tr>
         <tr>
           <th  class="info">お届け先</th>
           <td class="text-left">
-            <%=  %>
+            <%= session[:order]["post_code"] %><br>
+            <%= session[:order]["address"] %><br>
+            <%= session[:order]["name"]  %>
           </td>
         </tr>
       </table>
-      <div class ="col-xs-11">
-        <%= form_with model: @order, url: customers_orders_create_path, method: :post, local: true do |f| %>
-          <%= f.hidden_field :postage, value: 800 %>
-          <%= f.hidden_field :total_payment, value: %>
-          <%= f.hidden_field :payment_method, value: %>
-          <%= f.hidden_field :order_status, value:  %>
-          <%= f.hidden_field :post_code, value:  %>
-          <%= f.hidden_field :address, value:  %>
-          <%= f.hidden_field :name, value: %>
-          <%= f.submit "購入を確定する", class: "btn btn-warning center-block col-xs-5" %>
-        <% end %>
-      </div>
+
+      <%= link_to "購入を確定する", customers_orders_complete_path %>
+
     </div>
 </div>
 

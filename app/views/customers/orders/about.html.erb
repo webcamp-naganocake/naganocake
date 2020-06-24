@@ -1,16 +1,17 @@
 <body>
 	<h3>注文情報入力</h3>
+	<%= form_with(url: customers_orders_path, method: :post) do |form| %>
 	<h3>支払方法</h3>
-		<%= form_with(url: customers_orders_path, method: :post) do |form| %>
+
 			<!-- form.radio_button :カラム名, :保存される値(enumの番号) -->
-			<span>　　　</span><%= form.radio_button :payment_method, 0, checked: "checked" %>
+			<%= form.radio_button :method, 0, checked: "checked" %>
   			<%= form.label :クレジットカード %><br>
-  			<span>　　　</span><%= form.radio_button :payment_method, 1 %>
+  			<%= form.radio_button :method, 1 %>
   			<%= form.label :銀行振込 %>
-  		<% end %>
+
 
 	<h3>お届け先</h3>
-		<%= form_with(url: customers_orders_path, method: :post) do |form| %>
+
 
 			<%= form.radio_button :a_method, 0, checked: "checked" %>
 			<%= form.label :ご自身の住所 %><br>
@@ -23,7 +24,7 @@
 			<%= form.radio_button :a_method, 1 %>
 			<%= form.label :登録済住所から選択 %><br>
 			<!-- collection_select(プロパティ名, オブジェクトの配列, value属性の項目, テキストの項目 [, オプション])-->
-			<%= form.collection_select :shipping_address_for_order, @addresses, :id, :shipping_address_for_order %><br>
+			<%= form.collection_select :shipping_address_for_order, @addresses, :id, :shipping_address_for_view %><br>
 
 
 
