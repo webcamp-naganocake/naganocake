@@ -1,6 +1,7 @@
 class Admins::CustomersController < ApplicationController
   def index
-    @customers = Customer.page(params[:page]).per(10)
+    @search = Customer.ransack(params[:q])
+    @customers = @search.result.page(params[:page]).per(10)
   end
 
   def show
