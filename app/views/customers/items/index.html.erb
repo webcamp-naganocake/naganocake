@@ -1,6 +1,6 @@
 
 <div class="pull-right">
-	<%= search_form_for @search do |f| %>
+	<%= search_form_for(@search, url:items_path) do |f| %>
 		<%= f.label :name, "商品キーワード" %>
 		<%= f.search_field :name_cont %>
 		<%= f.submit %>
