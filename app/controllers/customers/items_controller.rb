@@ -2,6 +2,7 @@ class Customers::ItemsController < ApplicationController
 
  def top
   @genres = Genre.all
+  @items = Item.all
  end
 
  def index
