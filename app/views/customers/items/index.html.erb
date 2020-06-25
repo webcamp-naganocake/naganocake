@@ -1,3 +1,28 @@
+
+<div class="pull-right">
+	<%= search_form_for(@search, url:items_path) do |f| %>
+		<%= f.label :name, "商品キーワード" %>
+		<%= f.search_field :name_cont %>
+		<%= f.submit %>
+	<% end %>
+</div>
+
+<%# 
+	以下ransackによる検索機能の説明
+	
+	search_form_forは、ransack特有の書き方で、form_forのransack版に用意されているもの。
+	f.search_field :name_cont もransack特有の書き方
+	:name_cont は :検索対象にしたいカラム名_検索方法
+	ここでのcontというのはcontains valueの意味で部分一致という意味です。
+	他にも
+	*_eq 等しい
+	*_not_eq 等しくない
+	*_lt より小さい
+	*_lteq より小さい（等しいものも含む）
+	*_gt より大きい
+	*_gteq より大きい（等しいものも含む）
+ %>
+
 <body>
 
 	<%= render 'admins/genres/sidebar', genres: @genres %>

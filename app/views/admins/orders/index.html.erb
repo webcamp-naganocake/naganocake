@@ -1,3 +1,10 @@
+<div class="pull-right">
+	<%= search_form_for(@search, url:admins_orders_path) do |f| %>
+		<%= f.label :name, "注文履歴キーワード" %>
+		<%= f.search_field :name_cont %>
+		<%= f.submit %>
+	<% end %>
+</div>
 
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">

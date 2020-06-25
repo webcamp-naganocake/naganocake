@@ -33,6 +33,16 @@ Genre.create!(
    is_genres_status: false
 )
 
+Genre.create!(
+   name: "chocolate",
+   is_genres_status: false
+)
+
+Genre.create!(
+   name: "cookie",
+   is_genres_status: false
+)
+
 12.times do
    Item.create!(
       name: "cake",
@@ -41,6 +51,26 @@ Genre.create!(
       price_without_tax: 1000,
       is_sales_status: false
    )
+end
+
+12.times do
+  Item.create!(
+     name: "chocolate",
+     genre_id: 2,
+     description: "商品説明",
+     price_without_tax: 1000,
+     is_sales_status: false
+  )
+end
+
+12.times do
+  Item.create!(
+     name: "cookie",
+     genre_id: 3,
+     description: "商品説明",
+     price_without_tax: 1000,
+     is_sales_status: false
+  )
 end
 
 Order.create!([

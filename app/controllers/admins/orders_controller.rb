@@ -1,7 +1,8 @@
 class Admins::OrdersController < ApplicationController
 
 	def index
-		@orders = Order.page(params[:page]).per(10)
+		@search = Order.ransack(params[:q])
+        @orders = @search.result.page(params[:page]).per(10)
 	end
 
 	def show
