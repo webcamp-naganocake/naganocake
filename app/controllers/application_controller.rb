@@ -7,9 +7,8 @@ class ApplicationController < ActionController::Base
           admins_root_path
         when Customer
           root_path
-      end
+  		end
 	  end
-
 
 
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # customer側ルーティング
   devise_for :customers, controllers: {
    sessions:      'customers/sessions',
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
    end
 
   namespace :customers do
+   resources :genres, only: [:show]
    patch 'customers/withdraw' => 'customers#withdraw', as: 'customers_withdraw'
    get 'show' => 'customers#show'
    get 'customers/edit' => 'customers#edit'
@@ -38,7 +40,7 @@ Rails.application.routes.draw do
    resources :genres, only: [:index, :create, :edit, :update]
    resources :items, only: [:show, :index, :new, :create, :edit, :update]
    resources :orders, only: [:index, :show, :update]
-   resources :orders_details, only: [:update]
+   resources :order_details, only: [:update]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

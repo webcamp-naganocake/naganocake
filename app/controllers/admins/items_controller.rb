@@ -15,7 +15,7 @@ class Admins::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to admins_items_path
+      redirect_to admins_item_path(@item)
     else
       flash[:genre_created_error] = "ジャンル名を入力してください"
     redirect_to new_admins_item_path

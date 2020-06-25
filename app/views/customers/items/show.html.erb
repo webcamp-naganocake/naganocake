@@ -1,8 +1,11 @@
-<body>
 
-	<%= render 'admins/genres/sidebar', genres: @genres %>
 
-	<div class="col-xs-4">
+<div class="row">
+	<div class="col-xs-2">
+	<%= render 'customers/items/sidebar', genres: @genres %>
+	</div>
+
+	<div class="col-xs-5">
 		<%= attachment_image_tag @item, :image, :fill, 100, 50, format: 'jpeg',fallback: "no_image.jpg", size:'300x150' %>
 	</div>
 
@@ -16,5 +19,3 @@
   			  <%= form.submit "カートに入れる", class:"btn btn-primary col-xs-4" %>
 		<% end %>
 	</div>
-
-</body>
