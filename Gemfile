@@ -62,6 +62,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+gem 'devise-i18n'
+ gem 'devise-i18n-views'
 
 
 gem 'bootstrap-sass'
@@ -72,3 +74,4 @@ gem 'refile-mini_magick'
 gem 'kaminari'
 gem 'ransack'
 gem 'payjp'
+

@@ -15,6 +15,7 @@
           <li><%= link_to "商品一覧", items_path %></li>
           <li><%= link_to "カート", customers_cart_items_path %></li>
           <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+
         <% elsif admin_signed_in? %>
 
           <!-- 管理者がログインしている時 -->
