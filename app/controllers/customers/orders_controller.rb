@@ -9,7 +9,7 @@ class Customers::OrdersController < ApplicationController
 	def create
 		customer = current_customer
 		session[:order] = Order.new
-		address = ShippingAddress.find(params[:shipping_address_for_order])
+
 
 		cart_items = current_customer.cart_items
 		sum = 0
@@ -31,7 +31,7 @@ class Customers::OrdersController < ApplicationController
 
 		elsif a == 1
 
-
+			address = ShippingAddress.find(params[:shipping_address_for_order])
 			session[:order][:post_code] = address.postal_code
 			session[:order][:address] = address.address
 			session[:order][:name] = address.name 

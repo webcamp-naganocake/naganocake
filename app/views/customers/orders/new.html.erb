@@ -36,13 +36,13 @@
           <tr>
             <th class="info">配送料</th>
             <td class="text-right col-xs-5">
-              ¥<%= 800 %>
+              ¥<%= session[:order]["postage"] %>
             </td>
           </tr>
           <tr>
             <th class="info">商品合計</th>
             <td class="text-right">
-              ¥<%=session[:order]["total_payment"] - session[:order]["postage"] %>
+              ¥<%= session[:order]["total_payment"] - session[:order]["postage"] %>
             </td>
           </tr>
           <tr>
@@ -71,7 +71,7 @@
         </tr>
       </table>
 
-      <%= link_to "購入を確定する", customers_orders_complete_path %>
+      <%= link_to "購入を確定する", customers_orders_complete_path, class: 'btn btn-success col-xs-12' %>
 
     </div>
 </div>
