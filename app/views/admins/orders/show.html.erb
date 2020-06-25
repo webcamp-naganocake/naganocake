@@ -8,7 +8,7 @@
     <table class="table">
       <tbody>
       <tr>
-        <td>購入者</td>
+        <th>購入者</th>
         <td><%= link_to admins_customer_path(@order.customer) do %>
         <%= @order.customer.last_name %>
         <%= @order.customer.first_name %>
@@ -17,17 +17,17 @@
       </tr>
 
       <tr>
-        <td>配送先</td>
+        <th>配送先</th>
         <td><%= @order.address %></td>
       </tr>
 
       <tr>
-        <td>支払方法</td>
+        <th>支払方法</th>
         <td><%= @order.payment_method %></td>
       </tr>
 
       <tr>
-        <td>注文ステータス</td>
+        <th>注文ステータス</th>
         <td>
         <%= form_for (@order), url:admins_order_path(@order) do |f| %>
         <%= f.select :order_status,Order.order_statuses.keys.to_a %>
@@ -50,15 +50,16 @@
           </tr>
         </thead>
 
-        <% @order_details.each do |order_detail| %>
+
         <tbody>
+      <% @order_details.each do |order_detail| %>
           <tr>
             <td><%= order_detail.item.name %></td>
             <td><%= (order_detail.price * 1.1).floor %></td>
             <td><%= order_detail.quantity %></td>
             <td><%= (order_detail.price * order_detail.quantity * 1.1).floor %></td>
             <td>
-              <%= form_for (order_detail), url:admins_order_path(@order) do |f|  %>
+              <%= form_for (order_detail), url:admins_order_detail_path(@order) do |f|  %>
               <%= f.select :making_status, OrderDetail.making_statuses.keys.to_a %>
               <%= f.submit '更新',class:"btn btn-success" %>
               <% end %>
