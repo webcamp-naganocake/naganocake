@@ -1,7 +1,7 @@
 <div class="pull-right">
 	<%= search_form_for(@search, url:admins_items_path) do |f| %>
-		<%= f.label :last_name_or_first_name, "会員キーワード" %>
-		<%= f.search_field :last_name_or_first_name_cont %>
+		<%= f.label :name, "商品キーワード" %>
+		<%= f.search_field :name_cont %>
 		<%= f.submit %>
 	<% end %>
 </div>
