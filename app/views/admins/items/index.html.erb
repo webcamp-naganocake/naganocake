@@ -33,7 +33,7 @@
               <td><%= link_to item.name ,admins_item_path(item) %></td>
               <td><%= item.price_without_tax %></td>
               <td><%= item.genre.name %></td>
-              <td><% if item.is_sales_status == true %>
+              <td><% if item.is_sales_status == false %>
               販売中
               <% else %>
               販売停止中

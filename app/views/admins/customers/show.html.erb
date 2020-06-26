@@ -7,7 +7,7 @@
             <tr>
               <th class="col-xs-2">顧客ID</th>
               <td class="col-xs-10"><%= @customer.id %>
-              <% if @customer.is_customer_status == true %>
+              <% if @customer.is_customer_status == false %>
               <span class="label label-primary">
                 有効会員
               </span>

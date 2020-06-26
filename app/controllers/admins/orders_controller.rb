@@ -2,7 +2,7 @@ class Admins::OrdersController < ApplicationController
 
 	def index
 		@search = Order.ransack(params[:q])
-        @orders = @search.result.page(params[:page]).per(10)
+    @orders = @search.result.page(params[:page]).per(10)
 	end
 
 	def show
@@ -16,10 +16,11 @@ class Admins::OrdersController < ApplicationController
 
 	def update
 		order = Order.find(params[:id])
+		order_details = order.order_details
     order.update(order_params)
 
 		if order.order_status == "入金確認"
-			order.order_details.update(making_status: "製作待ち")
+			order_details.update_all(making_status: "製作待ち")
 		end
 		redirect_to admins_order_path(order.id)
 	end

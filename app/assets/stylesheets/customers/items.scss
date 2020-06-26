@@ -2,13 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.row h2{
-	font-family: 'Noto Serif JP', serif;
-	font-weight: bold;
-	color: gray;
-}
+
 
 .product-card-content {
 	color: black;
+}
 
+.item-content1 {
+	text-align: center;
+	padding-top: 12px;
+}
+
+.item-content2 {
+	padding-left: 100px;
+	padding-top: 12px;
 }
