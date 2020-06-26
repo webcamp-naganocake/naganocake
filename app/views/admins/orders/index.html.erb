@@ -26,7 +26,7 @@
           <% @orders.each do |order| %>
             <tr>
               <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M:%S"), admins_order_path(order) %></td>
-              <td><%= order.name %></td>
+              <td><%= order.customer.last_name + "　" + order.customer.first_name %></td>
               <td><%= order.order_details.sum(:quantity) %></td>
               <td><%= order.order_status %></td>
             </tr>
