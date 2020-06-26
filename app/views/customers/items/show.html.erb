@@ -6,7 +6,7 @@
 	</div>
 
 	<div class="col-xs-5">
-		<p class="item-content1"><%= attachment_image_tag @item, :image, :fill, 100, 50, format: 'jpeg',fallback: "no_image.jpg", size:'250x130' %></p>
+		<p class="item-content1"><%= attachment_image_tag @item, :image, :fill, 200, 150, format: 'jpeg',fallback: "no_image.jpg", size:'250x130' %></p>
 	</div>
 
 	<div class="col-xs-5">
@@ -22,8 +22,8 @@
 	</div>
 	<div class="col-xs-5">
 
-			<p class="item-content2">¥ <%= @item.price_without_tax*1.1.floor %> (税込)
-				<%= form.select :quantity, [['1個', 1], ['2個', 2], ['3個', 3], ['4個', 4], ['5個', 5], ['6個', 6], ['7個', 7], ['8個', 8], ['9個', 9]], {:prompt => "個数選択"} %></p>
+			<p class="item-content2", style="font-family: arial black">¥ <%= @item.price_without_tax*1.1.floor %> (税込)
+				<span>　　</span><%= form.select :quantity, [['1個', 1], ['2個', 2], ['3個', 3], ['4個', 4], ['5個', 5], ['6個', 6], ['7個', 7], ['8個', 8], ['9個', 9]], {:prompt => "個数選択"} %></p>
 		</div>
 
 		<div class="col-xs-5">

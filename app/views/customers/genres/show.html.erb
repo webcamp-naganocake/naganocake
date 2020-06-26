@@ -6,17 +6,16 @@
   <h2><%= @genre.name %>一覧(全<%= @items.count %>件)</h2>
 	<div class="col-xs-9 col-xs-offset-1">
 		<div class="product-card-content">
-
-
-
-		<% @items.each do |item| %>
-			<%= link_to item_path(item.id) do %>
-				<%= attachment_image_tag item, :image, :fill, 100, 50, format: 'jpeg',fallback: "no_image.jpg" %>
-				<%= item.name %>
-				¥<%= item.price_without_tax %>
+			<% @items.each do |item| %>
+				<div class="col-xs-3" style="padding-right: 0px; padding-left: 0px; margin: 10px 0;">
+					<%= link_to item_path(item.id) do %>
+						<%= attachment_image_tag item, :image, :fill, 200, 100, format: 'jpeg',fallback: "no_image.jpg" %>
+						<%= item.name %>
+						¥<%= item.price_without_tax %>
+					<% end %>
+				</div>
 			<% end %>
-		<% end %>
 		</div>
 	</div>
-	<%= paginate @items %>
+	<div style="text-align: center;"><%= paginate @items %></div>
 </div>

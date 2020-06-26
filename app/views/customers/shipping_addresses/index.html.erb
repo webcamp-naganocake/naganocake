@@ -1,5 +1,5 @@
 <%= render 'layouts/errors', obj: @shipping_address %>
-
+<%= flash[:success] %>
 
 <div class="row">
     <div class="col-xs-12">
@@ -35,7 +35,7 @@
                 <th class="col-xs-2">郵便番号</th>
                 <th class="col-xs-6">住所</th>
                 <th class="col-xs-2">宛名</th>
-                <th class="col-xs-2" colspan="2"></th>
+                <th class="col-xs-2"></th>
             </tr>
         </thead>
         <tbody>
