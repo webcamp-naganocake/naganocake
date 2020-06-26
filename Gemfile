@@ -76,4 +76,4 @@ gem 'ransack'
 gem 'payjp'
 
 gem 'jquery-rails'
-
+gem 'font-awesome-rails'

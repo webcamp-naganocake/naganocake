@@ -1,7 +1,7 @@
 <header>
   <div class="container">
     <nav class="nav navbar-nav navbar-left">
-      <h1 class="sample"><%= link_to "naganocakeロゴ", root_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></h1><%# image_tag("img_logo.png") %>
+      <h1 class="sample"><%= link_to image_tag("logo.png"), root_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></h1><%# image_tag("img_logo.png") %>
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">
@@ -9,7 +9,7 @@
 
           <!--カスタマーがログインしている時 -->
           <li style="font-family: HiraMinPro-W6; margin-top: 15px;">
-            ようこそ、<%= current_customer.last_name + current_customer.first_name %>さん！    
+            ようこそ、<%= current_customer.last_name + current_customer.first_name %>さん！
           </li>
           <li><%= link_to "マイページ", customers_show_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
           <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
