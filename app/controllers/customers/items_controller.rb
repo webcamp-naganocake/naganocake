@@ -2,6 +2,7 @@ class Customers::ItemsController < ApplicationController
 
  def top
   @genres = Genre.all
+  @items = Item.all
  end
 
  def index
@@ -15,6 +16,10 @@ class Customers::ItemsController < ApplicationController
   @item = Item.find(params[:id])
   @cart_item = CartItem.new
   @genres = Genre.all
+ end
+
+ def about
+    
  end
 
 end

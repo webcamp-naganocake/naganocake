@@ -75,3 +75,5 @@ gem 'kaminari'
 gem 'ransack'
 gem 'payjp'
 
+gem 'jquery-rails'
+
