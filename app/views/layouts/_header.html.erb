@@ -17,7 +17,7 @@
           <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
           <li><%= link_to "カート", customers_cart_items_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
           <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
-          <li><%= link_to "About", "", style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+          <li><%= link_to "About", about_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
           <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
           <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
 
@@ -32,7 +32,7 @@
           <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
           <li><%= link_to "ジャンル一覧", admins_genres_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
           <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
-          <li><%= link_to "About", "", style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+          <li><%= link_to "About", about_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
           <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
           <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
 
@@ -43,7 +43,7 @@
           <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
           <li><%= link_to "新規登録", new_customer_registration_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
           <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
-          <li><%= link_to "About", "", style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+          <li><%= link_to "About", about_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
           <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
           <li><%= link_to "ログイン", new_customer_session_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
         <% end %>
