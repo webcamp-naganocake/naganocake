@@ -28,7 +28,7 @@
               <td><%= link_to customer.first_name ,admins_customer_path(customer) %></td>
               <td><%= customer.email %></td>
               <td>
-                <% if customer.is_customer_status == true %>
+                <% if customer.is_customer_status == false %>
                 有効
                 <% else %>
                 無効
