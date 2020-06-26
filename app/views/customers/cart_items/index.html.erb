@@ -18,7 +18,7 @@
           <% @cart_items.each do |cart_item| %>
           <tr>
             <td class="col-xs-3"><%= cart_item.item.name %></td>
-            <td class="col-xs-2">¥<%= (cart_item.item.price_without_tax * 1.1).floor %></td>
+            <td class="col-xs-2">¥<%= ((cart_item.item.price_without_tax * 1.1).floor).to_s(:delimited, delimiter: ',') %></td>
             <td class="col-xs-1">
                 <%= form_for(cart_item, url: customers_cart_item_path(cart_item)) do |c| %>
                 <p>
@@ -28,7 +28,7 @@
                 <% end %>
             </td>
             <td class="col-xs-1">
-                ¥<%= (cart_item.item.price_without_tax * cart_item.quantity * 1.1).floor %>
+                ¥<%= ((cart_item.item.price_without_tax * cart_item.quantity * 1.1).floor).to_s(:delimited, delimiter: ',') %>
             </td>
             <td class="col-xs-1">
                 <%= link_to "削除する", customers_cart_item_path(cart_item.id), method: :DELETE, class: "btn btn-danger" %>
@@ -50,7 +50,7 @@
     <table class="table table-bordered">
         <tr>
             <td class="info col-xs-2"><strong>合計金額</strong></td>
-            <td class="col-xs-2">¥<%= @total_price.floor %></td>
+            <td class="col-xs-2">¥<%= @total_price.floor.to_s(:delimited, delimiter: ',') %></td>
         </tr>
     </table>
 </div>

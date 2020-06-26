@@ -23,7 +23,7 @@
             </tr>
             <tr>
               <td>税込価格</td>
-              <td><%= (@item.price_without_tax*1.1).floor %>円</td>
+              <td><%= (@item.price_without_tax*1.1).floor.to_s(:delimited, delimiter: ',') %>円</td>
             </tr>
             <tr>
               <td>販売ステータス</td>

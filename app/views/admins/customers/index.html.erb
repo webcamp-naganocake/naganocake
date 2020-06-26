@@ -25,7 +25,7 @@
           <% @customers.each do |customer| %>
             <tr>
               <td><%= customer.id %></td>
-              <td><%= link_to customer.first_name ,admins_customer_path(customer) %></td>
+              <td><%= link_to customer.last_name + "　"  + customer.first_name,admins_customer_path(customer) %></td>
               <td><%= customer.email %></td>
               <td>
                 <% if customer.is_customer_status == false %>
