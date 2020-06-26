@@ -9,6 +9,7 @@ class Customers::ItemsController < ApplicationController
   @genres = Genre.all
   @search = Item.ransack(params[:q])
   @items = @search.result.page(params[:page]).per(8)
+  @items_all = Item.all
  end
 
  
