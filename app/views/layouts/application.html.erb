@@ -14,7 +14,7 @@
 
 
   <% if customer_signed_in? %>
-    <body id="wrapper" style="background-color: white; ">
+    <body id="wrapper" style="background-color: white; font-family: HiraMinPro-W6; color: #000000;">
     <!-- ヘッダー -->
     <div id="header">
       <%= render "layouts/header" %>
@@ -29,7 +29,7 @@
     <%= render "layouts/footer" %>
     </body>
   <% elsif admin_signed_in? %>
-    <body id="wrapper" style="background-color: #EEEEEE; ">
+    <body id="wrapper" style="background-color: #EEEEEE; font-family: HiraMinPro-W6; color: #000000;">
     <!-- ヘッダー -->
     <div id="header">
       <%= render "layouts/header" %>
@@ -44,7 +44,7 @@
     <%= render "layouts/footer" %>
     </body>
   <% else %>
-    <body id="wrapper" style="background-color: white">
+    <body id="wrapper" style="background-color: white; font-family: HiraMinPro-W6; color: #000000; ">
     <!-- ヘッダー -->
     <div id="header">
       <%= render "layouts/header" %>
