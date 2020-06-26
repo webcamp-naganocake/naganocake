@@ -55,9 +55,9 @@
       <% @order_details.each do |order_detail| %>
           <tr>
             <td><%= order_detail.item.name %></td>
-            <td><%= (order_detail.price * 1.1).floor %></td>
+            <td><%= (order_detail.price).floor %></td>
             <td><%= order_detail.quantity %></td>
-            <td><%= (order_detail.price * order_detail.quantity * 1.1).floor %></td>
+            <td><%= (order_detail.price * order_detail.quantity).floor %></td>
             <td>
               <%= form_for (order_detail), url:admins_order_detail_path(@order) do |f|  %>
               <%= f.select :making_status, OrderDetail.making_statuses.keys.to_a %>
@@ -78,7 +78,7 @@
 
           <tr>
             <td>商品合計</td>
-            <td><%= @order.total_payment %></td>
+            <td><%= @order.total_payment - @order.postage %></td>
           </tr>
 
           <tr>
@@ -88,7 +88,7 @@
 
           <tr>
             <td>請求合計金額</td>
-            <td><%= @order.postage + @order.total_payment %></td>
+            <td><%= @order.total_payment %></td>
           </tr>
         </tbody>
       </table>
