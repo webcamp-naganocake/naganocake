@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   scope module: 'customers' do
     root 'items#top'
     resources :items, only: [:show, :index]
+    get 'about' => 'items#about'
    end
 
   namespace :customers do

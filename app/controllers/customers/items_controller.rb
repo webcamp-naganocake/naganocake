@@ -18,4 +18,8 @@ class Customers::ItemsController < ApplicationController
   @genres = Genre.all
  end
 
+ def about
+    
+ end
+
 end
