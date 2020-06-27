@@ -2,7 +2,8 @@ DMM WEBCAMPのチーム開発期間で作成したアプリです。
 作成期間：2020/06/11〜2020/06/29
 
 
-
+# アプリトップページ
+<img width="912" alt="スクリーンショット 2020-06-27 11 53 08" src="https://user-images.githubusercontent.com/63144797/85913237-d43dfe00-b86d-11ea-88ce-e634fbca61bb.png">
 
 
 # Nagano Cake (概要)
