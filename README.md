@@ -8,7 +8,6 @@ DMM WEBCAMPのチーム開発期間で作成したアプリです。
 
 # Nagano Cake (概要)
 ⻑野県にある⼩さな洋菓⼦店「ながのCAKE」の商品を通販するためのECサイト  
-You can check out the app on [Here]()!
 
 # アプリケーションの機能
 **・顧客側**
@@ -104,9 +103,7 @@ You can check out the app on [Here]()!
 ■開発環境  
 　Vagrant  
 ■フレームワーク  
-　Ruby on Rails  
-■データベース  
-AWS RDS, PostgreSQL  
+　Ruby on Rails   
 
 # インストール
 ```
