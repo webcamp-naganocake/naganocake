@@ -42,7 +42,7 @@
 
             <tr>
               <th>販売ステータス</th>
-              <td><%= f.select :is_sales_status, [["販売中","true"], ["販売不可","false"]], include_blank: "--選択してください--" %></td>
+              <td><%= f.select :is_sales_status, [["販売中","false"], ["販売不可","true"]], include_blank: "--選択してください--" %></td>
             </tr>
           </tbody>
         </table>

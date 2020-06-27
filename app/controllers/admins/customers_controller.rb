@@ -1,4 +1,6 @@
 class Admins::CustomersController < ApplicationController
+  before_action :authenticate_admin!
+  
   def index
     @search = Customer.ransack(params[:q])
     @customers = @search.result.page(params[:page]).per(10)
