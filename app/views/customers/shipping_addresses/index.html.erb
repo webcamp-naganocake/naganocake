@@ -4,9 +4,8 @@
 <div class="row">
     <div class="col-xs-12">
       <h3><strong>配送先登録/一覧</strong></h3>
-        <div class="row">
         <%= form_with(model: @shipping_address, :url => {:controller => "customers/shipping_addresses"}) do |f| %>
-            <div class="shipping_addres col-xs-10">
+            <div class="shipping_addres">
                 <div class="form-group col-xs-12">
                     <%= f.label :"郵便番号(ハイフンなし)" ,class: "col-xs-3 control-label" %>
                     <%= f.text_field :postal_code, class: "col-xs-4 form-control-static postal_code" %>
@@ -24,12 +23,13 @@
                 <%= f.submit '登録する' ,class: "col-xs-2 pull-right btn-lg btn-success " %>
             </div>
         <% end %>
-        </div>
+    </div>
+</div>
 
-        <p></p>
 
-        <div class="row">
-        <table class="table table-hover table-bordered col-xs-10">
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-hover table-bordered">
         <thead>
             <tr class="address-info">
                 <th class="col-xs-2">郵便番号</th>
@@ -55,3 +55,4 @@
         </div>
     </div>
 </div>
+
