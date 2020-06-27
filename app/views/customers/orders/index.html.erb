@@ -23,7 +23,7 @@
 				<%= order_detail.item.name %>
 			<% end %>
 			</td>
-			<td class="col-xs-2"><%= order.total_payment %></td>
+			<td class="col-xs-2"><%= order.total_payment.to_s(:delimited, delimiter: ',') %></td>
 			<td class="col-xs-2"><%= order.order_status %></td>
 			<td><%= link_to "表示する", customers_order_path(order), class: "btn btn-primary" %></td>
 		</tr>

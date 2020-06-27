@@ -18,13 +18,13 @@
                 <%= cart_item.item.name %>
               </td>
               <td class="text-right">
-                ¥<%= (cart_item.item.price_without_tax * 1.1).floor %>
+                ¥<%= ((cart_item.item.price_without_tax * 1.1).floor).to_s(:delimited, delimiter: ',') %>
               </td>
               <td class="text-right">
                   <%= cart_item.quantity %>
               </td>
               <td class="text-right">
-                ¥<%= (cart_item.item.price_without_tax * 1.1).floor * cart_item.quantity %>
+                ¥<%= ((cart_item.item.price_without_tax * 1.1).floor * cart_item.quantity).to_s(:delimited, delimiter: ',') %>
               </td>
             </tr>
           <% end %>
@@ -36,19 +36,20 @@
           <tr>
             <th class="info">配送料</th>
             <td class="text-right col-xs-5">
-              ¥<%= session[:order]["postage"] %>
+              <!-- sessiomのデータを表示する場合、カラム名に""つける -->
+              ¥<%= session[:order]["postage"].to_s(:delimited, delimiter: ',') %>
             </td>
           </tr>
           <tr>
             <th class="info">商品合計</th>
             <td class="text-right">
-              ¥<%= session[:order]["total_payment"] - session[:order]["postage"] %>
+              ¥<%= (session[:order]["total_payment"] - session[:order]["postage"]).to_s(:delimited, delimiter: ',') %>
             </td>
           </tr>
           <tr>
             <th class="info">請求金額</th>
             <td class="text-right">
-              ¥<%= session[:order]["total_payment"] %>
+              ¥<%= session[:order]["total_payment"].to_s(:delimited, delimiter: ',') %>
             </td>
           </tr>
       </table>
@@ -71,7 +72,7 @@
         </tr>
       </table>
 
-      <%= link_to "購入を確定する", customers_orders_complete_path, class: 'btn btn-success col-xs-12' %>
+      <%= link_to "購入を確定する", customers_orders_complete_path, class: 'btn btn-primary col-xs-12' %>
 
     </div>
 </div>

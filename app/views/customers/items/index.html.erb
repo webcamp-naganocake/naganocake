@@ -28,7 +28,7 @@
 		<%= render 'customers/items/sidebar', genres: @genres %>
 	</div>
 
-  <h2 style="margin: 20px 0;">商品一覧(全<%= @items.count %>件)</h2>
+  <h2 style="margin: 20px 0;">商品一覧(全<%= @items_all.count %>件)</h2>
 	<div class="col-xs-9 col-xs-offset-1">
 		<div class="product-card-content">
 
@@ -36,9 +36,9 @@
 		<% @items.each do |item| %>
 		<div class="col-xs-3" style="padding-right: 0px; padding-left: 0px; margin: 10px 0;">
 			<%= link_to item_path(item.id) ,style: "color: black;" do %>
-				<%= attachment_image_tag item, :image, :fill, 100, 50, format: 'jpeg',fallback: "no_image.jpg" %><br>
+				<%= attachment_image_tag item, :image, :fill, 200, 150, format: 'jpeg',fallback: "no_image.jpg" %><br>
 				<%= item.name %>
-				¥<%= item.price_without_tax %>
+				¥<%= item.price_without_tax.to_s(:delimited, delimiter: ',') %>
 
 			<% end %>
 		</div>

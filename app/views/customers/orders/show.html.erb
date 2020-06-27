@@ -8,7 +8,7 @@
               <tr>
                 <th class="info">注文日</th>
           	    <td class="text-left">
-                  <%= @order.created_at.strftime('%Y/%m/%d/') %>
+                  <%= @order.created_at.strftime('%Y/%m/%d %H:%M') %>
                 </td>
               </tr>
               <tr>
@@ -41,19 +41,19 @@
             <tr>
               <th class="info">配送料</th>
               <td class="col-xs-5">
-                ¥<%= @order.postage %>
+                ¥<%= @order.postage.to_s(:delimited, delimiter: ',') %>
               </td>
             </tr>
             <tr>
               <th class="info">商品合計</th>
               <td class="col-xs-5">
-                ¥<%= @order.total_payment - @order.postage %>
+                ¥<%= (@order.total_payment - @order.postage).to_s(:delimited, delimiter: ',') %>
               </td>
             </tr>
             <tr>
               <th class="info">ご請求金額</th>
               <td class="col-xs-5">
-                ¥<%= @order.total_payment %>
+                ¥<%= @order.total_payment.to_s(:delimited, delimiter: ',') %>
               </td>
             </tr>
         </table>
@@ -73,9 +73,9 @@
         	<% @order_details.each do |order_detail| %>
             <tr>
                 <td><%= order_detail.item.name %></td>
-                <td>¥<%= (order_detail.item.price_without_tax * 1.1).floor %></td>
+                <td>¥<%= (order_detail.item.price_without_tax * 1.1).floor.to_s(:delimited, delimiter: ',') %></td>
                 <td><%= order_detail.quantity %></td>
-                <td>¥<%= (order_detail.item.price_without_tax * 1.1).floor * (order_detail.quantity) %></td>
+                <td>¥<%= ((order_detail.item.price_without_tax * 1.1).floor * (order_detail.quantity)).to_s(:delimited, delimiter: ',') %></td>
             </tr>
           <% end %>
           </tbody>

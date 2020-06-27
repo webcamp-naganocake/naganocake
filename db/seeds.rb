@@ -97,7 +97,7 @@ Item.create!(
 
 Item.create!(
     name: "レアチーズケーキ",
-    genre_id: 6,
+    genre_id: 1,
     description: "レアチーズケーキ",
     price_without_tax: 1600,
     image: open("./app/assets/images/blur-1869227_640 2.jpg")
@@ -105,7 +105,7 @@ Item.create!(
 
 Item.create!(
     name: "チーズケーキ",
-    genre_id: 6,
+    genre_id: 1,
     description: "チーズケーキ",
     price_without_tax: 400,
     image: open("./app/assets/images/cheese-cake.jpg")
@@ -127,6 +127,40 @@ Item.create!(
     image: open("./app/assets/images/img_milky_chou_A_191115.jpg")
    )
 
+Item.create!(
+    name: "特製フルーツタルト",
+    genre_id: 5,
+    description: "ながのCAKE特製フルーツタルト",
+    price_without_tax: 200,
+    image: open("./app/assets/images/anv_fruits_torte.jpg")
+   )
+
+
+Item.create!(
+    name: "アイスケーキ",
+    genre_id: 4,
+    description: "アイスケーキ",
+    price_without_tax: 200,
+    image: open("./app/assets/images/ice-1786311_640.jpg")
+   )
+
+
+Item.create!(
+    name: "ティラミスケーキ",
+    genre_id: 1,
+    description: "ティラミス風ケーキ",
+    price_without_tax: 200,
+    image: open("./app/assets/images/img_hokkaido_tiramisu_200204.jpg")
+   )
+
+
+Item.create!(
+    name: "アップルパイ",
+    genre_id: 7,
+    description: "アップルパイ",
+    price_without_tax: 200,
+    image: open("./app/assets/images/img_kokusan_apple_pie 2.jpg")
+   )
 
 
 # Order.create!([
