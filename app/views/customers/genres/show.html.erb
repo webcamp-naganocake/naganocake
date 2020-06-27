@@ -8,7 +8,7 @@
 		<div class="product-card-content">
 			<% @items.each do |item| %>
 				<div class="col-xs-3" style="padding-right: 0px; padding-left: 0px; margin: 10px 0;">
-					<%= link_to item_path(item.id) do %>
+					<%= link_to item_path(item.id), data: {"turbolinks" => false} do %>
 						<%= attachment_image_tag item, :image, :fill, 200, 150, format: 'jpeg',fallback: "no_image.jpg" %>
 						<%= item.name %>
 						¥<%= item.price_without_tax.to_s(:delimited, delimiter: ',') %>
