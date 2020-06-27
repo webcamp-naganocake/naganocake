@@ -66,7 +66,7 @@ Genre.create!(
 Item.create!(
     name: "フルーツタルト",
     genre_id: 5,
-    description: "フルーツ盛り沢山！",
+    description: "フルーツ盛り沢山！フルーツ盛り沢山！フルーツ盛り沢山！フルーツ盛り沢山！フルーツ盛り沢山！フルーツ盛り沢山！フルーツ盛り沢山！フルーツ盛り沢山！フルーツ盛り沢山！フルーツ盛り沢山！フルーツ盛り沢山！フルーツ盛り沢山！フルーツ盛り沢山！フルーツ盛り沢山！フルーツ盛り沢山！フルーツ盛り沢山！",
     price_without_tax: 1000,
     image: open("./app/assets/images/cake-1284548_640.jpg")
    )
@@ -74,7 +74,7 @@ Item.create!(
 Item.create!(
     name: "イチゴタルト",
     genre_id: 5,
-    description: "イチゴ盛り沢山！",
+    description: "イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！イチゴ盛り沢山！",
     price_without_tax: 1200,
     image: open("./app/assets/images/footer-cake.jpg")
    )
@@ -82,7 +82,7 @@ Item.create!(
 Item.create!(
     name: "フランスパン",
     genre_id: 6,
-    description: "フランスの硬いパン",
+    description: "フランスの硬いパンフランスの硬いパンフランスの硬いパンフランスの硬いパンフランスの硬いパンフランスの硬いパンフランスの硬いパンフランスの硬いパンフランスの硬いパンフランスの硬いパンフランスの硬いパンフランスの硬いパンフランスの硬いパンフランスの硬いパンフランスの硬いパンフランスの硬いパンフランスの硬いパン",
     price_without_tax: 1200,
     image: open("./app/assets/images/an_20190501_026-thumb-940x626-6728.jpg")
    )
@@ -90,7 +90,7 @@ Item.create!(
 Item.create!(
     name: "ブルーベリーケーキ",
     genre_id: 1,
-    description: "ブルーベリーのケーキ",
+    description: "ブルーベリーのケーキブルーベリーのケーキブルーベリーのケーキブルーベリーのケーキブルーベリーのケーキブルーベリーのケーキブルーベリーのケーキブルーベリーのケーキブルーベリーのケーキブルーベリーのケーキブルーベリーのケーキブルーベリーのケーキブルーベリーのケーキブルーベリーのケーキブルーベリーのケーキブルーベリーのケーキブルーベリーのケーキ",
     price_without_tax: 500,
     image: open("./app/assets/images/baked-goods-1846460_640.jpg")
    )
@@ -98,7 +98,7 @@ Item.create!(
 Item.create!(
     name: "レアチーズケーキ",
     genre_id: 1,
-    description: "レアチーズケーキ",
+    description: "レアチーズケーキレアチーズケーキレアチーズケーキレアチーズケーキレアチーズケーキレアチーズケーキレアチーズケーキレアチーズケーキレアチーズケーキレアチーズケーキレアチーズケーキレアチーズケーキレアチーズケーキレアチーズケーキレアチーズケーキレアチーズケーキレアチーズケーキレアチーズケーキレアチーズケーキ",
     price_without_tax: 1600,
     image: open("./app/assets/images/blur-1869227_640.jpg")
    )
@@ -106,7 +106,7 @@ Item.create!(
 Item.create!(
     name: "チーズケーキ",
     genre_id: 1,
-    description: "チーズケーキ",
+    description: "チーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキチーズケーキ",
     price_without_tax: 400,
     image: open("./app/assets/images/cheese-cake.jpg")
    )
@@ -114,7 +114,7 @@ Item.create!(
 Item.create!(
     name: "生チョコ",
     genre_id: 3,
-    description: "生チョコ",
+    description: "生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ生チョコ",
     price_without_tax: 350,
     image: open("./app/assets/images/img_honkaku_choconama_171110.jpg")
    )
@@ -130,7 +130,7 @@ Item.create!(
 Item.create!(
     name: "特製フルーツタルト",
     genre_id: 5,
-    description: "ながのCAKE特製フルーツタルト",
+    description: "ながのCAKE特製フルーツタルト！ながのCAKE特製フルーツタルト！ながのCAKE特製フルーツタルト！ながのCAKE特製フルーツタルト！ながのCAKE特製フルーツタルト！ながのCAKE特製フルーツタルト！ながのCAKE特製フルーツタルト！ながのCAKE特製フルーツタルト！ながのCAKE特製フルーツタルト！ながのCAKE特製フルーツタルト！ながのCAKE特製フルーツタルト！ながのCAKE特製フルーツタルト！ながのCAKE特製フルーツタルト！",
     price_without_tax: 200,
     image: open("./app/assets/images/anv_fruits_torte.jpg")
    )
@@ -139,7 +139,7 @@ Item.create!(
 Item.create!(
     name: "アイスケーキ",
     genre_id: 4,
-    description: "アイスケーキ",
+    description: "アイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキアイスケーキ",
     price_without_tax: 200,
     image: open("./app/assets/images/ice-1786311_640.jpg")
    )
@@ -148,7 +148,7 @@ Item.create!(
 Item.create!(
     name: "ティラミスケーキ",
     genre_id: 1,
-    description: "ティラミス風ケーキ",
+    description: "ティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキティラミス風ケーキ",
     price_without_tax: 200,
     image: open("./app/assets/images/img_hokkaido_tiramisu_200204.jpg")
    )
@@ -156,8 +156,8 @@ Item.create!(
 
 Item.create!(
     name: "アップルパイ",
-    genre_id: 7,
-    description: "アップルパイ",
+    genre_id: 5,
+    description: "アップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイアップルパイ",
     price_without_tax: 200,
     image: open("./app/assets/images/img_kokusan_apple_pie.jpg")
    )
