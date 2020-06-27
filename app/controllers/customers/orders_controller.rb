@@ -80,9 +80,7 @@ class Customers::OrdersController < ApplicationController
 		shipping_address.address = session[:order][:address]
 		shipping_address.name = session[:order][:name]
 
-		unless shipping_address.presence
 		shipping_address.save
-		end
 
 		# 以下、order_detail作成
 		cart_items = current_customer.cart_items
