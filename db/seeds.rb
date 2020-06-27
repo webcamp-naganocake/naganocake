@@ -100,7 +100,7 @@ Item.create!(
     genre_id: 1,
     description: "レアチーズケーキ",
     price_without_tax: 1600,
-    image: open("./app/assets/images/blur-1869227_640 2.jpg")
+    image: open("./app/assets/images/blur-1869227_640.jpg")
    )
 
 Item.create!(
@@ -159,7 +159,7 @@ Item.create!(
     genre_id: 7,
     description: "アップルパイ",
     price_without_tax: 200,
-    image: open("./app/assets/images/img_kokusan_apple_pie 2.jpg")
+    image: open("./app/assets/images/img_kokusan_apple_pie.jpg")
    )
 
 

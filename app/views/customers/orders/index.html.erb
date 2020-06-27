@@ -20,7 +20,7 @@
 			</td>
 			<td class="col-xs-1">
 				<% order.order_details.each do |order_detail| %>
-				<%= order_detail.item.name %>
+				<%= order_detail.item.name %><br>
 			<% end %>
 			</td>
 			<td class="col-xs-2"><%= order.total_payment.to_s(:delimited, delimiter: ',') %></td>

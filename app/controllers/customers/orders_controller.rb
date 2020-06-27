@@ -1,4 +1,5 @@
 class Customers::OrdersController < ApplicationController
+	before_action :authenticate_customer!
 
 	def about
 		@order = Order.new
@@ -72,23 +73,37 @@ class Customers::OrdersController < ApplicationController
 	def complete
 		order = Order.new(session[:order])
 		order.save
+
+		shipping_address = ShippingAddress.new
+		shipping_address.customer_id = current_customer.id
+		shipping_address.postal_code = session[:order][:post_code]
+		shipping_address.address = session[:order][:address]
+		shipping_address.name = session[:order][:name]
+
+		unless shipping_address.presence
+		shipping_address.save
+		end
+
 		# 以下、order_detail作成
 		cart_items = current_customer.cart_items
 		cart_items.each do |cart_item|
 			order_detail = OrderDetail.new
 			order_detail.order_id = order.id
-			order_detail.item_id = cart_item.id
+			order_detail.item_id = cart_item.item.id
 			order_detail.quantity = cart_item.quantity
 			order_detail.making_status = 0
 			order_detail.price = (cart_item.item.price_without_tax * 1.1).floor
 			order_detail.save
 		end
+
+
+
 		# 購入後はカート内商品削除
 		cart_items.destroy_all
 	end
 
 	def index
-		@orders = Order.all
+		@orders = current_customer.orders
 	end
 
 	def show
@@ -97,6 +112,9 @@ class Customers::OrdersController < ApplicationController
 	end
 
 	# private
+		# def shipping_address_params
+		# 	params.require(:shipping_address).permit(:customer_id, :postal_code, :name, :address)
+
 	#     def order_params
 	#        params.require(:order).permit(:customer_id, :postage, :total_payment, :payment_method, :ordr_status, :post_code, :address, :name)
 	#     end
@@ -105,6 +123,8 @@ class Customers::OrdersController < ApplicationController
 	#     def order_detail_params
 	#        params.require(:order_detail).permit(:order_id, :item_id, :quantity, :making_status, :price)
 	#     end
+
+
 
 end
 
