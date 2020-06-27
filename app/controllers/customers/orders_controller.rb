@@ -48,6 +48,8 @@ class Customers::OrdersController < ApplicationController
 
 		# 新しいお届け先が選択された時
 		elsif destination == 2
+
+			session[:new_address] = 2
 			session[:order][:post_code] = params[:post_code]
 			session[:order][:address] = params[:address]
 			session[:order][:name] = params[:name]
@@ -74,13 +76,14 @@ class Customers::OrdersController < ApplicationController
 		order = Order.new(session[:order])
 		order.save
 
-		shipping_address = ShippingAddress.new
-		shipping_address.customer_id = current_customer.id
-		shipping_address.postal_code = session[:order][:post_code]
-		shipping_address.address = session[:order][:address]
-		shipping_address.name = session[:order][:name]
-
-		shipping_address.save
+		if session[:new_address]
+			shipping_address = current_customer.shipping_addresses.new
+			shipping_address.postal_code = order.post_code
+			shipping_address.address = order.address
+			shipping_address.name = order.name
+			shipping_address.save
+			session[:new_address] = nil
+		end
 
 		# 以下、order_detail作成
 		cart_items = current_customer.cart_items
@@ -93,8 +96,6 @@ class Customers::OrdersController < ApplicationController
 			order_detail.price = (cart_item.item.price_without_tax * 1.1).floor
 			order_detail.save
 		end
-
-
 
 		# 購入後はカート内商品削除
 		cart_items.destroy_all
