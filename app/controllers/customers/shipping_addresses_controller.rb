@@ -14,7 +14,7 @@ class Customers::ShippingAddressesController < ApplicationController
         @shipping_address.customer_id = current_customer.id
         if @shipping_address.save
             redirect_to customers_shipping_addresses_path
-            flash[:success] = "新しい配送先を登録しました。"
+            flash[:success] = "登録しました。"
         else
             @shipping_address = ShippingAddress.new
             @shipping_addresses = current_customer.shipping_addresses
