@@ -36,6 +36,7 @@
           <tr>
             <th class="info">配送料</th>
             <td class="text-right col-xs-5">
+              <!-- sessiomのデータを表示する場合、カラム名に""つける -->
               ¥<%= session[:order]["postage"].to_s(:delimited, delimiter: ',') %>
             </td>
           </tr>
@@ -71,7 +72,7 @@
         </tr>
       </table>
 
-      <%= link_to "購入を確定する", customers_orders_complete_path, class: 'btn btn-success col-xs-12' %>
+      <%= link_to "購入を確定する", customers_orders_complete_path, class: 'btn btn-primary col-xs-12' %>
 
     </div>
 </div>
