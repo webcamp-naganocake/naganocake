@@ -1,3 +1,17 @@
 // Place all the styles related to the admins/genres controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//_sidebar
+  .ec-genre-list{
+    background-color: #f7f6f5;
+    td{
+      line-height: 60px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+  }
+  .ec-genre-list-item{
+  	color: gray;
+  	text-decoration: none !important;
+  }

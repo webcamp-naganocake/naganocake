@@ -1,0 +1,53 @@
+<header>
+  <div class="container">
+    <nav class="nav navbar-nav navbar-left">
+      <h1 class="sample"><%= link_to image_tag("logo.png"), root_path, data: {"turbolinks" => false}, style: "font-family: HiraMinPro-W6; color: #000000;" %></h1><%# image_tag("img_logo.png") %>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right" style="margin-top: 30px;">
+        <% if customer_signed_in? %>
+
+          <!--カスタマーがログインしている時 -->
+          <li style="font-family: HiraMinPro-W6; margin-top: 15px;">
+            ようこそ、<%= current_customer.last_name + current_customer.first_name %>さん！
+          </li>
+          <li><%= link_to "マイページ", customers_show_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+          <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
+          <li><%= link_to "商品一覧", items_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+          <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
+          <li><%= link_to "カート", customers_cart_items_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+          <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
+          <li><%= link_to "About", about_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+          <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
+          <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+
+        <% elsif admin_signed_in? %>
+
+          <!-- 管理者がログインしている時 -->
+          <li><%= link_to "商品一覧", admins_items_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+          <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
+          <li><%= link_to "会員一覧", admins_customers_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+          <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
+          <li><%= link_to "注文履歴一覧", admins_orders_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+          <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
+          <li><%= link_to "ジャンル一覧", admins_genres_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+          <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
+          <li><%= link_to "About", about_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+          <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
+          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+
+        <% else %>
+
+          <!-- ログインしていない時 -->
+          <li><%= link_to "商品一覧", items_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+          <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
+          <li><%= link_to "新規登録", new_customer_registration_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+          <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
+          <li><%= link_to "About", about_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+          <li style="font-family: Osaka; margin-top: 15px; color: #696969;">|</li>
+          <li><%= link_to "ログイン", new_customer_session_path, style: "font-family: HiraMinPro-W6; color: #000000;" %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

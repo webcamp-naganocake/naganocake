@@ -62,3 +62,20 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+gem 'devise-i18n'
+ gem 'devise-i18n-views'
+
+
+gem 'bootstrap-sass'
+gem 'jquery-rails'
+gem 'rubocop-airbnb'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem 'refile-mini_magick'
+gem 'kaminari'
+gem 'ransack'
+gem 'payjp'
+
+gem 'jquery-rails'
+gem 'font-awesome-rails'
+
+gem 'pry-rails'

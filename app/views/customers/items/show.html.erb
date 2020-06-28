@@ -1,0 +1,35 @@
+
+
+<div class="row">
+	<div class="col-xs-2">
+	<%= render 'customers/items/sidebar', genres: @genres %>
+	</div>
+
+	<br>
+	<div class="col-xs-5">
+		<p class="item-content1"><%= attachment_image_tag @item, :image, :fill, 300, 250, format: 'jpeg',fallback: "no_image.jpg", size:'380x300' %></p>
+	</div>
+
+	<div class="col-xs-5">
+		<%= form_for(@cart_item , url: customers_cart_items_path(item_id: @item), method: :post) do |form| %>
+		<h3><%= @item.name %></h3>
+		<p><%= @item.description %></p>
+
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-2">
+	</div>
+	<div class="col-xs-5">
+
+			<p class="item-content2", style="font-family: arial black">¥ <%= ((@item.price_without_tax*1.1).floor).to_s(:delimited, delimiter: ',') %> (税込)
+				<span>　　</span><%= form.select :quantity, [['1個', 1], ['2個', 2], ['3個', 3], ['4個', 4], ['5個', 5], ['6個', 6], ['7個', 7], ['8個', 8], ['9個', 9]], {:prompt => "個数選択"} %></p>
+		</div>
+
+		<div class="col-xs-5">
+		  <p><%= form.submit "カートに入れる", class:"btn btn-primary" %></p>
+		</div>
+		<% end %>
+	</div>
+</div>

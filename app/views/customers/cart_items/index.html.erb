@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-xs-12">
+      <div>
+        <strong class="information-link"><h3>ショッピングカート</h3></strong>
+        <%= link_to "カートを空にする", customers_all_destroy_path, method: :delete, class: "pull-right btn btn-danger" %>
+      </div>
+        <table class="table table-hover table-bordered col-xs-10" >
+         <thead>
+          <tr class="info">
+            <th class="col-xs-3">商品名</th>
+            <th class="col-xs-2">単価（税込み）</th>
+            <th class="col-xs-1">数量</th>
+            <th class="col-xs-1">小計</th>
+            <th class="col-xs-1"></th>
+          </tr>
+         </thead>
+         <tbody>
+          <% @cart_items.each do |cart_item| %>
+          <tr>
+            <td class="col-xs-3"><%= cart_item.item.name %></td>
+            <td class="col-xs-2">¥<%= ((cart_item.item.price_without_tax * 1.1).floor).to_s(:delimited, delimiter: ',') %></td>
+            <td class="col-xs-1">
+                <%= form_for(cart_item, url: customers_cart_item_path(cart_item)) do |c| %>
+                <p>
+                  <%= c.number_field :quantity, min:1, max:10000, step:1 %>
+                  <%= c.submit "変更", class: "btn btn-primary" %>
+                </p>
+                <% end %>
+            </td>
+            <td class="col-xs-1">
+                ¥<%= ((cart_item.item.price_without_tax * cart_item.quantity * 1.1).floor).to_s(:delimited, delimiter: ',') %>
+            </td>
+            <td class="col-xs-1">
+                <%= link_to "削除する", customers_cart_item_path(cart_item.id), method: :DELETE, class: "btn btn-danger" %>
+            </td>
+          </tr>
+          <% end %>
+         </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="col-xs-8">
+    <span>
+    <%= link_to "買い物を続ける", root_path, class: "btn btn-primary", data: {"turbolinks" => false} %>
+    </span>
+</div>
+<div class="col-xs-4">
+    <table class="table table-bordered">
+        <tr>
+            <td class="info col-xs-2"><strong>合計金額</strong></td>
+            <td class="col-xs-2">¥<%= @total_price.floor.to_s(:delimited, delimiter: ',') %></td>
+        </tr>
+    </table>
+</div>
+
+
+<div class = "col-xs-4 col-xs-offset-4">
+    <span>
+        <%= link_to "情報入力に進む", customers_orders_about_path, class: "col-xs-12 btn btn-success"%>
+    </span>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+
+    <div class="genrekara" style="font-size :20px;" >
+      ジャンルから探す
+    </div>
+
+    <table class="table table-bordered table-hover text-center ec-genre-list" >
+      <tr>
+        <td>
+          <%= link_to "全商品を表示", items_path, class:"ec-genre-list-item" %>
+        </td>
+      </tr>
+
+      <% genres.each do |genre| %>
+      <% if genre.is_genres_status == true %>
+        <tr>
+          <td>
+            <%= link_to genre.name, customers_genre_path(genre.id), class:"ec-genre-list-item"%>
+            </td>
+        </tr>
+           <% end %>
+           <% end %>
+    </table>

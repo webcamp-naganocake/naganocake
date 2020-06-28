@@ -1,0 +1,39 @@
+<div class="pull-right">
+	<%= search_form_for(@search, url:admins_orders_path) do |f| %>
+		<%= f.label :name, "注文履歴キーワード" %>
+		<%= f.search_field :name_cont %>
+		<%= f.submit %>
+	<% end %>
+</div>
+
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <h2>注文一覧</h2>
+
+
+    <div class="order-table">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>注文個数</th>
+            <th>注文ステータス</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M:%S"), admins_order_path(order) %></td>
+              <td><%= order.customer.last_name + "　" + order.customer.first_name %></td>
+              <td><%= order.order_details.sum(:quantity) %></td>
+              <td><%= order.order_status %></td>
+            </tr>
+            <% end %>
+            <%= paginate @orders %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

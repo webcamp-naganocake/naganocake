@@ -1,0 +1,9 @@
+
+<h2 class="admin-homes-top-title">管理者画面</h2>
+
+<div class="row admin-homes-top-message">
+  <span class="col-xs-3">本日の注文件数</span>
+  <span class="col-xs-9">
+    <%= link_to @orders.count, admins_orders_path %>件
+  </span>
+</div>

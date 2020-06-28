@@ -1,0 +1,41 @@
+
+<div class="a" data-turbolinks="false">
+    <div class="b"><img class="c" src="assets/cake6.jpg"></div>
+    <div class="b"><img class="c" src="assets/cookie1.jpg"></div>
+    <div class="b"><img class="c" src="assets/fruites1.jpg"></div>
+</div>
+
+<div class="row">
+  	<div class="col-xs-2">
+    <!-- ジャンルのサイドバーを表示 -->
+    <%= render "customers/items/sidebar", genres: @genres %>
+    </div>
+
+    <div class="col-xs-9 col-xs-offset-1">
+        <h4 style="font-family: HiraMinPro-W6; color: #000000; margin: 20px 0;">ようこそ、NaganoCakeへ！<br>
+        このサイトは、ケーキ販売のECサイトになります。<br>
+        会員でない方も商品の閲覧はできますが、<br>
+        購入には会員登録が必要になります。<br>
+        </h4>
+
+        <h3 class="recommended-items" style="font-family: HiraMinPro-W6; color: #000000;">オススメ商品</h3>
+
+        <!-- 商品を4つ表示するようにする -->
+        <div class="col-xs-9 col-xs-offset-1">
+            <div class="item--card-content">
+                <% @items.last(4).each do |item| %>
+                    <div class="col-xs-3" style="padding-right: 0px; padding-left: 0px;">
+                        <%= link_to item_path(item.id) ,style: "color: black;", data: {"turbolinks" => false} do %>
+                            <%= attachment_image_tag item, :image, :fill, 180, 125, format: 'jpeg',fallback: "no_image.jpg" %><br>
+                            <%= item.name %><br>
+                            ¥<%= item.price_without_tax.to_s(:delimited, delimiter: ',') %>
+                        <% end %>
+                    </div>
+                <% end %>
+            <div>
+        </div>
+
+        
+    </div>
+    <h3><%= link_to "もっと見る", items_path, class: "pull-right", style: "font-family: HiraMinPro-W6; color: #000000; margin: 30px 0;" %></h3>
+</div>

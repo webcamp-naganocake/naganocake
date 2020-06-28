@@ -1,0 +1,54 @@
+<body>
+	<div class="panel panel-warning">
+		<div class="panel-heading">
+	<h2><span class="label label-default">注文情報入力</span></h2>
+	</div>
+	<div class="panel-body">
+
+		<%= form_with(url: customers_orders_path, method: :post) do |form| %>
+			<h3>支払方法</h3>
+
+			<!-- form.radio_button :カラム名, :保存される値(enumの番号) -->
+			<span>　　　</span><%= form.radio_button :method, 0, checked: "checked" %>
+	  		<%= form.label :クレジットカード %><br>
+	  		<span>　　　</span><%= form.radio_button :method, 1 %>
+	  		<%= form.label :銀行振込 %>
+
+
+			<h3>お届け先</h3>
+
+			<span>　　　</span><%= form.radio_button :a_method, 0, checked: "checked" %>
+			<%= form.label :ご自身の住所 %><br>
+			<span>　　　　　</span><%= @customer.postal_code %>
+			<%= @customer.address %><br>
+			<span>　　　　　</span><%= @customer.last_name %>
+			<%= @customer.first_name %><br>
+
+
+			<span>　　　</span><%= form.radio_button :a_method, 1 %>
+			<%= form.label :登録済住所から選択 %><br>
+			<!-- collection_select(プロパティ名, オブジェクトの配列, value属性の項目, テキストの項目 [, オプション])-->
+			<span>　　　　　</span><%= form.collection_select :shipping_address_for_order, @addresses, :id, :shipping_address_for_view %><br>
+
+
+
+			<span>　　　</span><%= form.radio_button :a_method, 2 %>
+			<%= form.label :新しいお届け先 %><br>
+			<div class="form-group col-xs-12">
+				<%= form.label :"　　　郵便番号(ハイフンなし)", class: "col-xs-3 control-label"  %>
+				<%= form.text_field :post_code, class: "col-xs-4 form-control-static postal_code" %>
+			</div>
+			<div class="form-group col-xs-12">
+				<%= form.label :"　　　住所", class: "col-xs-3 control-label" %>
+				<%= form.text_field :address, class: "col-xs-7 form-control-static address" %>
+			</div>
+			<div class="form-group col-xs-12">
+				<%= form.label :"　　　宛名", class: "col-xs-3 control-label" %>
+				<%= form.text_field :name, class: "col-xs-4 form-control-static name"%>
+			</div>
+
+	   		<%= form.submit "確認画面へ進む", class: 'btn btn-warning col-xs-6 col-xs-offset-1'%>
+
+		<% end %>
+	</div>
+</body>

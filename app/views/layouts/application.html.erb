@@ -7,9 +7,56 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+
+  <% if customer_signed_in? %>
+    <body id="wrapper" style="background-color: white; font-family: HiraMinPro-W6; color: #000000;">
+    <!-- ヘッダー -->
+    <div id="header">
+      <%= render "layouts/header" %>
+    </div>
+
+    <!-- Body部分 -->
+    <div class="container" style="margin-top: 20px;">
+      <%= yield %>
+    </div>
+
+    <!-- Footer -->
+    <%= render "layouts/footer" %>
+    </body>
+  <% elsif admin_signed_in? %>
+    <body id="wrapper" style="background-color: #EEEEEE; font-family: HiraMinPro-W6; color: #000000;">
+    <!-- ヘッダー -->
+    <div id="header">
+      <%= render "layouts/header" %>
+    </div>
+
+    <!-- Body部分 -->
+    <div class="container" style="margin-top: 20px;">
+      <%= yield %>
+    </div>
+
+    <!-- Footer -->
+    <%= render "layouts/footer" %>
+    </body>
+  <% else %>
+    <body id="wrapper" style="background-color: white; font-family: HiraMinPro-W6; color: #000000; ">
+    <!-- ヘッダー -->
+    <div id="header">
+      <%= render "layouts/header" %>
+    </div>
+
+    <!-- Body部分 -->
+    <div class="container" style="margin-top: 20px;">
+      <%= yield %>
+    </div>
+
+    <!-- Footer -->
+    <%= render "layouts/footer" %>
+    </body>
+  <% end %>
 </html>

@@ -1,0 +1,21 @@
+
+<!-- 改行する方法がこれで良いのか -->
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <h2>ジャンル編集</h2><br>
+
+    <div class="edit-genre-form">
+    <%= form_for(@genre, url: admins_genre_path) do |f| %>    
+
+          <%= f.label :ジャンル %>
+          <%= f.text_field :name,class: "col-md-4" %>
+
+          <%= f.radio_button :is_genres_status, :true %>
+          <%= f.label :is_genres_status, "有効"  %>
+          <%= f.radio_button :is_genres_status, :false %>
+          <%= f.label :is_genres_status, "無効" %>
+          <%= f.submit "変更を保存する" ,class: "btn btn-primary" %>
+        </div>
+    <% end %>
+  </div>
+</div>
