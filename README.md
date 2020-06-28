@@ -1,5 +1,6 @@
 DMM WEBCAMPのチーム開発期間で作成したアプリです。  
 作成期間：2020/06/11〜2020/06/29
+You can check out the app on [Here](https://morning-bastion-06180.herokuapp.com/)!  
 
 
 # アプリトップページ
