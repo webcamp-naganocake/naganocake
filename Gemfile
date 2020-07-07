@@ -79,3 +79,8 @@ gem 'jquery-rails'
 gem 'font-awesome-rails'
 
 gem 'pry-rails'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
